@@ -1,0 +1,251 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** LIGHT STYLE ***************************************/
+
+/* Light styles. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* --- !basic
+/* --- !headers
+/* --- !buttons
+/* --- !figures
+/* --- !svg
+/* --- !tables
+/* --- !forms
+/* --- !code
+/* !CUSTOM
+/* --- !active
+/* --- !default
+/* --- !highlight
+
+/******************************* !IMPORTS *******************************/
+
+@import "palettes";
+
+/******************************* !GLOBALS *******************************/
+
+
+/*******************/
+/***** !basic ******/
+/*******************/
+
+html, body {
+    
+    background: $light-1-100;
+    
+}
+
+/*******************/
+/***** !links ******/
+/*******************/
+
+a {
+    
+    color: $link-basic;
+    
+}
+
+a:hover,
+a:active {
+    
+    color: $link-hover;
+    
+}
+
+/*********************/
+/***** !headers ******/
+/*********************/
+
+html, body, p,
+h1, h2, h3, h4, h5, h6 {
+	
+	color: $mid-4-100;
+	
+}
+
+/*********************/
+/***** !buttons ******/
+/*********************/
+
+button {
+	
+	background-color: transparent;
+	border-color: $mid-3-100;
+	color: currentColor;
+	
+}
+
+button:not([disabled]):hover {
+    
+    background: $light-4-100;
+    border-color: $light-4-100;
+    color: $light-1-100;
+    
+}
+
+button:active {
+    
+    background: $light-3-100;
+    
+}
+
+/*********************/
+/***** !figures ******/
+/*********************/
+
+article figure {
+    
+    background: $highlight-2;
+    
+}
+
+/* wireframe boxes */
+article figure rect {
+    
+    fill: transparent;
+    stroke: currentColor;
+    
+}
+
+/* svg type */
+article figure text {
+    
+    fill: currentColor;
+    stroke: transparent
+    
+}
+
+figcaption {
+    
+    color: black;
+    
+}
+
+/********************/
+/***** !tables ******/
+/********************/
+
+thead {
+    
+    border-bottom-color: $light-3-100;
+    
+}
+
+tr:nth-child(even) {
+    
+    background-color: $light-2-100;
+    
+}
+
+/*******************/
+/***** !forms ******/
+/*******************/
+
+form {
+    
+    background: $light-3-100;
+    
+}
+
+form fieldset label:hover {
+    
+    background: $link-hover;
+    color: $light-2-100;
+    
+}
+
+input[type="text"],
+textarea {
+    
+    background: $light-3-100;
+    
+}
+
+input[type="number"] {
+    
+    color: currentColor;
+    
+}
+
+input[type="radio"] + label {
+    
+    background: $light-2-15;
+    
+}
+
+input[type="radio"]:checked + label {
+    
+    background: $link-basic;
+    color: $light-2-100;
+    
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    
+    background: white;
+    
+}
+
+input[type="text"].ng-not-empty,
+textarea.ng-not-empty {
+    
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    
+}
+
+/******************/
+/***** !code ******/
+/******************/
+
+code {
+    
+    background: $dark-3-100;
+    color: $mid-1-100;
+    
+}
+
+/******************************* !CUSTOM *******************************/
+
+/********************/
+/***** !active ******/
+/********************/
+
+/* active */
+.active {
+    
+    color: $dark-4-100;
+    
+}
+
+/*********************/
+/***** !default ******/
+/*********************/
+
+/* default */
+.default {
+    
+    border-color: $highlight;
+    
+}
+
+/* default text */
+.default:before {
+    
+    color: $highlight;
+    
+}
+
+/***********************/
+/***** !highlight ******/
+/***********************/
+
+.highlight {
+    
+    color: $highlight-3;
+    
+}

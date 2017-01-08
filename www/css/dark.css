@@ -1,0 +1,72 @@
+/* CSS Document */
+/*************************************** DARK STYLE ***************************************/
+/* Dark styles. */
+/* !IMPORTS
+/* !GLOBALS
+/* --- !nav
+/* --- !content
+/* !CUSTOM
+/* --- !active
+
+/******************************* !IMPORTS *******************************/
+/* CSS Document */
+/*************************************** COLOR PALETTES ***************************************/
+/* SASS-based color palettes. */
+/* !SASS VARIABLES
+/* --- !greys
+/* --- !color
+
+/******************************* !SASS VARIABLES *******************************/
+/*******************/
+/***** !greys ******/
+/*******************/
+/* solid color */
+/* tints */
+/*******************/
+/***** !color ******/
+/*******************/
+/* links */
+/* highlight */
+/******************************* !GLOBALS *******************************/
+html, body {
+  background: #1a1a1a; }
+
+html, body, p,
+h1, h2, h3, h4, h5, h6 {
+  color: #969696; }
+
+button {
+  background-color: transparent;
+  border-color: #464646;
+  color: currentColor; }
+
+button:hover {
+  background: #5a5a5a; }
+
+button:active {
+  background: #464646; }
+
+/*****************/
+/***** !nav ******/
+/*****************/
+/*********************/
+/***** !content ******/
+/*********************/
+/******************************* !CUSTOM *******************************/
+/********************/
+/***** !active ******/
+/********************/
+/* active */
+.active {
+  color: #aaaaaa; }
+
+/* active nav */
+li.active {
+  color: #0a0a0a; }
+
+/************************/
+/***** !pagination ******/
+/************************/
+.pagination a {
+  background: #0a0a0a;
+  color: #aaaaaa; }

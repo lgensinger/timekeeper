@@ -1,0 +1,170 @@
+/* CSS Document */
+/*************************************** LIGHT STYLE ***************************************/
+/* Light styles. */
+/* !IMPORTS
+/* !GLOBALS
+/* --- !basic
+/* --- !headers
+/* --- !buttons
+/* --- !figures
+/* --- !svg
+/* --- !tables
+/* --- !forms
+/* --- !code
+/* !CUSTOM
+/* --- !active
+/* --- !default
+/* --- !highlight
+
+/******************************* !IMPORTS *******************************/
+/* CSS Document */
+/*************************************** COLOR PALETTES ***************************************/
+/* SASS-based color palettes. */
+/* !SASS VARIABLES
+/* --- !greys
+/* --- !color
+
+/******************************* !SASS VARIABLES *******************************/
+/*******************/
+/***** !greys ******/
+/*******************/
+/* solid color */
+/* tints */
+/*******************/
+/***** !color ******/
+/*******************/
+/* links */
+/* highlight */
+/******************************* !GLOBALS *******************************/
+/*******************/
+/***** !basic ******/
+/*******************/
+html, body {
+  background: #fafafa; }
+
+/*******************/
+/***** !links ******/
+/*******************/
+a {
+  color: #ce6242; }
+
+a:hover,
+a:active {
+  color: #eb7653; }
+
+/*********************/
+/***** !headers ******/
+/*********************/
+html, body, p,
+h1, h2, h3, h4, h5, h6 {
+  color: #646464; }
+
+/*********************/
+/***** !buttons ******/
+/*********************/
+button {
+  background-color: transparent;
+  border-color: #828282;
+  color: currentColor; }
+
+button:not([disabled]):hover {
+  background: #aaaaaa;
+  border-color: #aaaaaa;
+  color: #fafafa; }
+
+button:active {
+  background: #c8c8c8; }
+
+/*********************/
+/***** !figures ******/
+/*********************/
+article figure {
+  background: #bbe3ef; }
+
+/* wireframe boxes */
+article figure rect {
+  fill: transparent;
+  stroke: currentColor; }
+
+/* svg type */
+article figure text {
+  fill: currentColor;
+  stroke: transparent; }
+
+figcaption {
+  color: black; }
+
+/********************/
+/***** !tables ******/
+/********************/
+thead {
+  border-bottom-color: #c8c8c8; }
+
+tr:nth-child(even) {
+  background-color: #f4f4f4; }
+
+/*******************/
+/***** !forms ******/
+/*******************/
+form {
+  background: #c8c8c8; }
+
+form fieldset label:hover {
+  background: #eb7653;
+  color: #f4f4f4; }
+
+input[type="text"],
+textarea {
+  background: #c8c8c8; }
+
+input[type="number"] {
+  color: currentColor; }
+
+input[type="radio"] + label {
+  background: rgba(244, 244, 244, 0.15); }
+
+input[type="radio"]:checked + label {
+  background: #ce6242;
+  color: #f4f4f4; }
+
+input[type="text"]:focus,
+textarea:focus {
+  background: white; }
+
+input[type="text"].ng-not-empty,
+textarea.ng-not-empty {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0; }
+
+/******************/
+/***** !code ******/
+/******************/
+code {
+  background: #1a1a1a;
+  color: #969696; }
+
+/******************************* !CUSTOM *******************************/
+/********************/
+/***** !active ******/
+/********************/
+/* active */
+.active {
+  color: #0a0a0a; }
+
+/*********************/
+/***** !default ******/
+/*********************/
+/* default */
+.default {
+  border-color: #952301; }
+
+/* default text */
+.default:before {
+  color: #952301; }
+
+/***********************/
+/***** !highlight ******/
+/***********************/
+.highlight {
+  color: #1e88a8; }

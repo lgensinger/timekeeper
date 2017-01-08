@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** DARK STYLE ***************************************/
+
+/* Dark styles. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* --- !nav
+/* --- !content
+/* !CUSTOM
+/* --- !active
+
+/******************************* !IMPORTS *******************************/
+
+@import "palettes";
+
+/******************************* !GLOBALS *******************************/
+
+html, body {
+    
+    background: $dark-3-100;    
+}
+
+html, body, p,
+h1, h2, h3, h4, h5, h6 {
+	
+	color: $mid-1-100;
+	
+}
+
+button {
+	
+	background-color: transparent;
+	border-color: $dark-2-100;
+	color: currentColor;
+	
+}
+
+button:hover {
+    
+    background: $dark-1-100;
+    
+}
+
+button:active {
+    
+    background: $dark-2-100;
+    
+}
+
+/*****************/
+/***** !nav ******/
+/*****************/
+
+main section:first-child {
+
+    
+}
+
+/*********************/
+/***** !content ******/
+/*********************/
+
+main section:last-child {
+    
+    
+}
+
+/******************************* !CUSTOM *******************************/
+
+/********************/
+/***** !active ******/
+/********************/
+
+/* active */
+.active {
+    
+    color: $light-4-100;
+    
+}
+
+/* active nav */
+li.active {
+    
+    color: $dark-4-100;
+    
+}
+
+/************************/
+/***** !pagination ******/
+/************************/
+
+.pagination a {
+    
+    background: $dark-4-100;
+    color: $light-4-100;
+    
+}

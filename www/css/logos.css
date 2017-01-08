@@ -1,0 +1,307 @@
+/* CSS Document */
+/*************************************** LOGOS ***************************************/
+/* SASS-based logo styles. */
+/* !SASS VARIABLES
+/* --- !basics
+/* !CUSTOM
+/* --- !logos
+/* --- !beacon
+/* --- !bit
+/* --- !bolt
+/* --- !dive
+/* --- !echo
+/* --- !eis
+/* --- !labs
+/* --- !launchpad
+/* --- !rain
+/* --- !saul
+/* --- !storm
+/* --- !valeris
+/* --- !warp
+
+/******************************* !SASS VARIABLES *******************************/
+/********************/
+/***** !basics ******/
+/********************/
+/* vertical logos */
+/* horizontal logos */
+/* square logos */
+/****************************** FONTS ******************************/
+/*******************/
+/***** !logos ******/
+/*******************/
+/* tall logo */
+.logo.portrait {
+  height: auto;
+  width: 4em; }
+
+/* wide logo */
+.logo.landscape {
+  height: 2em;
+  width: auto; }
+
+/* square logo */
+.logo.square {
+  height: 6em;
+  width: 4em; }
+
+/***********/
+/* !beacon */
+/***********/
+.beacon.full-color #type {
+  fill: #9ea7a9; }
+
+.beacon.full-color #icon {
+  fill: #75b2bf; }
+
+/********/
+/*! bit */
+/********/
+.bit.full-color #overlap {
+  fill: #8e1e5b; }
+
+.bit.full-color #arrowLeftTop {
+  fill: #969696; }
+
+.bit.full-color #arrowLeftBottom {
+  fill: #848484; }
+
+.bit.full-color #arrowRightBottom {
+  fill: #e57528; }
+
+.bit.full-color #arrowRightTop {
+  fill: #f48029; }
+
+.bit.full-color #type {
+  fill: #848484; }
+
+/*********/
+/* !bolt */
+/*********/
+.bolt.full-color #type {
+  fill: #030e1e; }
+
+.bolt.full-color #icon {
+  fill: #7fd1fd; }
+
+/*********/
+/* !dive */
+/*********/
+.dive.full-color #type {
+  fill: #bdbfc1; }
+
+.dive.full-color #icon {
+  fill: #bdbfc1; }
+
+/*********/
+/* !echo */
+/*********/
+.echo.full-color #type {
+  fill: #f99a12; }
+
+.echo.full-color #icon {
+  fill: #526b7f; }
+
+/********/
+/* !eis */
+/********/
+.eis.full-color #type {
+  fill: #0e3c5e; }
+
+.eis.full-color #outsideCubes {
+  fill: #1f5074; }
+
+.eis.full-color #insideCubes {
+  fill: #2e6b8e; }
+
+.eis.full-color #lowerTopOutline {
+  fill: #34789a; }
+
+.eis.full-color #lowerBottomOutline {
+  fill: #2a6689; }
+
+.eis.full-color #upperTopOutline {
+  fill: #19486c; }
+
+.eis.full-color #upperMiddleOutline {
+  fill: #317697; }
+
+.eis.full-color #upperBottomOutline {
+  fill: #4091b1; }
+
+.eis.full-color #centerFill {
+  fill: #469ebe; }
+
+.eis.full-color #middleFill {
+  fill: #3c8cac; }
+
+.eis.full-color #outerFill {
+  fill: #2b6e8f; }
+
+/*********/
+/* !labs */
+/*********/
+.labs.full-color #type {
+  fill: #bdbfc1; }
+
+.labs.full-color #icon {
+  fill: #bdbfc1; }
+
+/**************/
+/* !launchpad */
+/**************/
+/* dark blue */
+.launchpad.full-color #type,
+.launchpad.full-color #finRight,
+.launchpad.full-color #finLeft,
+.launchpad.full-color #bodyRight,
+.launchpad.full-color #finBack,
+.launchpad.full-color #windowColorBack {
+  fill: #0e2430; }
+
+/* bright-orange */
+.launchpad.full-color #exhaustBack {
+  fill: #ea714b; }
+
+/* mustard */
+.launchpad.full-color #exhaustFront,
+.launchpad.full-color #windowColorFront {
+  fill: #e8ad4d; }
+
+/* eggshell */
+.launchpad.full-color #bodyBack,
+.launchpad.full-color #cloudsDarkBack,
+.launchpad.full-color #cloudsLightBack {
+  fill: #f4f4f4; }
+
+/* white */
+.launchpad.full-color #bodyLeft,
+.launchpad.full-color #finCenterLeft,
+.launchpad.full-color #windowOverlayFront,
+.launchpad.full-color #cloudsLightFront {
+  fill: white; }
+
+/* black */
+.launchpad.full-color #finCenterRight,
+.launchpad.full-color #windowOverlayBack,
+.launchpad.full-color #cloudsDarkFront {
+  fill: black; }
+
+.launchpad.full-color #bodyRight,
+.launchpad.full-color #bodyLeft,
+.launchpad.full-color #finCenterRight,
+.launchpad.full-color #finCenterLeft,
+.launchpad.full-color #windowOverlayBack,
+.launchpad.full-color #windowOverlayFront,
+.launchpad.full-color #cloudsDarkFront,
+.launchpad.full-color #cloudsLightFront {
+  opacity: 0.1; }
+
+/*********/
+/* !rain */
+/*********/
+.rain.full-color #type {
+  fill: #646464; }
+
+.rain.full-color #umbrella {
+  fill: #c8c8c8; }
+
+.rain.full-color #shield path:nth-child(1) {
+  fill: #4ba1b2;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(2) {
+  fill: #9dc93d;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(3) {
+  fill: #39d2da;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(4) {
+  fill: #cd6a44;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(5) {
+  fill: #1fd1fd;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(6) {
+  fill: #c0bc12;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(7) {
+  fill: #8bbe0c;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(8) {
+  fill: #bc3806;
+  opacity: 1; }
+
+.rain.full-color #shield path:nth-child(9) {
+  fill: #ebdca6;
+  opacity: 1; }
+
+/*********/
+/* !saul */
+/*********/
+.saul.full-color {
+  fill: #2a2925; }
+
+/**********/
+/* !storm */
+/**********/
+.storm.full-color #type,
+.storm.full-color #dots {
+  fill: #303030; }
+
+.storm.full-color #lines {
+  fill: #c8c8c8; }
+
+/************/
+/* !valeris */
+/************/
+.valeris.full-color #type,
+.valeris.full-color #outline {
+  fill: #57706f; }
+
+.valeris.full-color #cube3,
+.valeris.full-color #cube7 {
+  fill: #60a5a9; }
+
+.valeris.full-color #cube2,
+.valeris.full-color #cube6,
+.valeris.full-color #cube8 {
+  fill: rgba(96, 165, 169, 0.8); }
+
+.valeris.full-color #cube5 {
+  fill: rgba(96, 165, 169, 0.75); }
+
+.valeris.full-color #cube4,
+.valeris.full-color #cube9 {
+  fill: rgba(96, 165, 169, 0.65); }
+
+.valeris.full-color #cube1 {
+  fill: rgba(96, 165, 169, 0.4); }
+
+/*********/
+/* !warp */
+/*********/
+.warp.full-color #type,
+.warp.full-color #ringDark {
+  fill: #006838; }
+
+.warp.full-color #ringGrass {
+  fill: #74b64a; }
+
+.warp.full-color #ringMid {
+  fill: #8bc53f; }
+
+.warp.full-color #ringLime {
+  fill: #bed63a; }
+
+.warp.full-color #ringYG {
+  fill: #d6de23; }
+
+.warp.full-color #ringYellow {
+  fill: #f9ec31; }

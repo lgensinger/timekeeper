@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** TYPOGRAPHIC COMBINATIONS ***************************************/
+
+/* SASS-based type combinations. */
+
+/* !SASS VARIABLES
+/* --- !sans-serif
+/* --- !sans-serif-2
+/* --- !code
+/* --- !type sizes
+/* !FONTS
+/* --- !open sans
+/* --- !oswald
+/* !GLOBALS
+/* --- !headers
+
+/******************************* !SASS VARIABLES *******************************/
+
+/************************/
+/***** !sans-serif ******/
+/************************/
+
+$sans-serif: "Open Sans", sans-serif;
+$sans-serif-black: 800;
+$sans-serif-bold: 700;
+$sans-serif-regular: 400;
+$sans-serif-light: 300;
+
+/**************************/
+/***** !sans-serif-2 ******/
+/**************************/
+
+$sans-serif-2: "Oswald", serif;
+$sans-serif-2-black: 700;
+$sans-serif-2-bold: 700;
+$sans-serif-2-regular: 400;
+$sans-serif-2-light: 300;
+
+/******************/
+/***** !code ******/
+/******************/
+
+$code: "Source Code Pro", monospace;
+$code-black: 900;
+$code-bold: 700;
+$code-regular: 400;
+$code-light: 300;
+
+/************************/
+/***** !type sizes ******/
+/************************/
+
+/* body copy */
+$copy-point-size: 16px;
+$copy-small-size: 0.75em;
+$copy-max-width: 600px;
+$copy-min-width: 300px;
+$copy-leading: 1.4;
+$copy-gutter: 50px;
+$copy-callout-size: 1.1em;
+$copy-callout-leading: 1.5;
+
+/* code copy */
+$code-point-size: 12px;
+$code-max-width: 600px;
+
+/* subhead */
+$subhead-size: 1em;
+$subhead-leading: 1.5;
+
+/* headline */
+$headline-size: 1.5em;
+$headline-leading: 1;
+
+/* app title */
+$app-title-size: 2.25em;
+
+/* tables */
+$table-header: 0.9em;
+
+/* buttons */
+$button-regular: 0.85em;
+
+/****************************** FONTS ******************************/
+
+/***********************/
+/***** !open sans ******/
+/***********************/
+
+/* regular */
+@font-face {
+    
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: $sans-serif-regular;
+    src: url("../assets/fonts/SourceSansPro-Regular.ttf") format("truetype");
+    
+}
+
+/* light */
+@font-face {
+    
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: $sans-serif-light;
+    src: url("../assets/fonts/OpenSans-Light.ttf") format("truetype");
+    
+}
+
+/* italic */
+@font-face {
+    
+    font-family: $sans-serif;
+    font-style: italic;
+    font-weight: $sans-serif-regular;
+    src: url("../assets/fonts/OpenSans-Italic.ttf") format("truetype");
+    
+}
+
+/* bold */
+@font-face {
+    
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: $sans-serif-bold;
+    src: url("../assets/fonts/OpenSans-Bold.ttf") format("truetype");
+    
+}
+
+/* black */
+@font-face {
+    
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: $sans-serif-black;
+    src: url("../assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+    
+}
+
+/********************/
+/***** !oswald ******/
+/********************/
+
+/* regular */
+@font-face {
+    
+    font-family: $sans-serif-2;
+    font-style: normal;
+    font-weight: $sans-serif-2-regular;
+    src: url("../assets/fonts/Oswald-Regular.ttf") format("truetype");
+    
+}
+
+/* light */
+@font-face {
+    
+    font-family: $sans-serif-2;
+    font-style: normal;
+    font-weight: $sans-serif-2-light;
+    src: url("../assets/fonts/Oswald-Light.ttf") format("truetype");
+    
+}
+
+/* bold */
+@font-face {
+    
+    font-family: $sans-serif-2;
+    font-style: normal;
+    font-weight: $sans-serif-2-bold;
+    src: url("../assets/fonts/Oswald-Bold.ttf") format("truetype");
+    
+}

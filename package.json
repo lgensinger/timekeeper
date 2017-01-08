@@ -1,0 +1,28 @@
+{
+  "name": "timekeeper",
+  "version": "1.0.0",
+  "description": "Clean UI for tracking time worked",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgensinger/timekeeper.git"
+  },
+  "author": "lindsay gensinger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgensinger/timekeeper/issues"
+  },
+  "homepage": "https://github.com/lgensinger/timekeeper#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.0.0"
+  }
+}
