@@ -62,11 +62,11 @@ button:active {
 
 /* active nav */
 li.active {
-  color: #0a0a0a; }
+  color: #292929; }
 
 /************************/
 /***** !pagination ******/
 /************************/
 .pagination a {
-  background: #0a0a0a;
+  background: #292929;
   color: #aaaaaa; }

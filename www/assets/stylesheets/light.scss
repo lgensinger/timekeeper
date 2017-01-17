@@ -61,7 +61,7 @@ a:active {
 html, body, p,
 h1, h2, h3, h4, h5, h6 {
 	
-	color: $mid-4-100;
+	color: $dark-4-100;
 	
 }
 
@@ -142,12 +142,6 @@ tr:nth-child(even) {
 /*******************/
 /***** !forms ******/
 /*******************/
-
-form {
-    
-    background: $light-3-100;
-    
-}
 
 form fieldset label:hover {
     

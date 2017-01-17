@@ -40,7 +40,7 @@
 /***** !basic ******/
 /*******************/
 html, body {
-  background: #fafafa; }
+  background: #f0efef; }
 
 /*******************/
 /***** !links ******/
@@ -57,7 +57,7 @@ a:active {
 /*********************/
 html, body, p,
 h1, h2, h3, h4, h5, h6 {
-  color: #646464; }
+  color: #292929; }
 
 /*********************/
 /***** !buttons ******/
@@ -70,7 +70,7 @@ button {
 button:not([disabled]):hover {
   background: #aaaaaa;
   border-color: #aaaaaa;
-  color: #fafafa; }
+  color: #f0efef; }
 
 button:active {
   background: #c8c8c8; }
@@ -106,9 +106,6 @@ tr:nth-child(even) {
 /*******************/
 /***** !forms ******/
 /*******************/
-form {
-  background: #c8c8c8; }
-
 form fieldset label:hover {
   background: #eb7653;
   color: #f4f4f4; }
@@ -150,7 +147,7 @@ code {
 /********************/
 /* active */
 .active {
-  color: #0a0a0a; }
+  color: #292929; }
 
 /*********************/
 /***** !default ******/

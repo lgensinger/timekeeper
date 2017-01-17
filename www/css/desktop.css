@@ -445,8 +445,8 @@ html, body {
 main {
   padding: 6em; }
 
-main > section:not(:first-child) {
-  margin-top: 3em; }
+main > section {
+  display: flex; }
 
 /*******************/
 /***** !links ******/
@@ -465,8 +465,7 @@ hgroup, h1, h2, h3, h4, h5, h6 {
   width: 60%; }
 
 h1, h2, h3 {
-  font-family: "Oswald", serif;
-  font-weight: 700; }
+  font-family: "Oswald", serif; }
 
 h1 {
   font-size: 1.5em;
@@ -480,6 +479,7 @@ h2, h3 {
 hgroup h1,
 section > h1 {
   font-size: 1.5em;
+  margin-bottom: 0.25em;
   text-transform: capitalize; }
 
 /* header subtext */
@@ -499,9 +499,63 @@ main > hgroup h2 {
   font-size: 1em;
   line-height: 1.5; }
 
+main section hgroup {
+  left: -1em;
+  position: relative;
+  text-align: center; }
+
+main section hgroup + div {
+  margin-top: 2em;
+  position: relative; }
+
+main section hgroup + div:before {
+  background: currentColor;
+  content: "";
+  left: -2em;
+  height: 1px;
+  position: absolute;
+  top: -1em;
+  width: calc(100% + 2em); }
+
 /* intro text */
 main > hgroup p {
   font-style: normal; }
+
+main section > div:not(:last-child) {
+  margin-right: 8em; }
+
+main section > div > div > div {
+  margin-bottom: 0.75em;
+  position: relative; }
+
+main section > div > div > div span,
+main section > div > div > div form {
+  position: absolute; }
+
+main section > div > div > div span:first-of-type {
+  border: 1px;
+  border-color: currentColor;
+  border-style: solid;
+  font-size: 0.75em;
+  left: -2.5em;
+  padding-bottom: 0.1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  padding-top: 0.15em;
+  top: 0.25em;
+  text-align: center;
+  width: 1.15em; }
+
+main section > div > div > div span:last-of-type,
+main section > div > div > div form {
+  cursor: pointer;
+  pointer-events: all;
+  right: 0;
+  top: 0.25em; }
+
+main section > div > div > div form {
+  right: -1.85em;
+  top: 0; }
 
 h3 {
   font-size: 1.2em;
@@ -532,10 +586,6 @@ b, strong {
 /*********************/
 section {
   position: relative; }
-
-/* figure wrap */
-section > div {
-  display: flex; }
 
 article {
   width: 400px; }
@@ -613,20 +663,8 @@ tfoot td {
 /***** !forms ******/
 /*******************/
 form {
-  margin-bottom: 1em;
-  margin-left: -6em;
-  padding: 1.5em;
-  padding-left: 6em;
-  padding-right: 6em;
-  width: 100%; }
-
-form fieldset {
-  display: inline-block;
-  margin-right: 1em;
-  position: relative; }
-
-form fieldset label {
-  cursor: pointer; }
+  margin: 0;
+  padding: 0; }
 
 input[type="text"] {
   max-width: 600px;
@@ -658,6 +696,9 @@ input[type="radio"]:checked + label:before {
 input[disabled],
 button[disabled] {
   opacity: 0.3; }
+
+label {
+  display: none; }
 
 /******************/
 /***** !code ******/

@@ -59,9 +59,9 @@ main {
     
 }
 
-main > section:not(:first-child) {
+main > section {
     
-    margin-top: 3em;
+    display: flex;
     
 }
 
@@ -92,7 +92,6 @@ hgroup, h1, h2, h3, h4, h5, h6 {
 h1, h2, h3 {
     
     font-family: $sans-serif-2;
-    font-weight: $sans-serif-bold;
     
 }
 
@@ -115,6 +114,7 @@ hgroup h1,
 section > h1 {
     
     font-size: $headline-size;
+    margin-bottom: 0.25em;
     text-transform: capitalize;
     
 }
@@ -145,10 +145,91 @@ main > hgroup h2 {
     
 }
 
+main section hgroup {
+    
+    left: -1em;
+    position: relative;
+    text-align: center;
+    
+}
+
+main section hgroup + div {
+    
+    margin-top: 2em;
+    position: relative;
+    
+}
+
+main section hgroup + div:before {
+    
+    background: currentColor;
+    content: "";
+    left: -2em;
+    height: 1px;
+    position: absolute;
+    top: -1em;
+    width: calc(100% + 2em);
+    
+}
+
 /* intro text */
 main > hgroup p {
     
     font-style: normal;
+    
+}
+
+main section > div:not(:last-child) {
+    
+    margin-right: 8em;
+    
+}
+
+main section > div > div > div {
+    
+    margin-bottom: 0.75em;
+    position: relative;
+    
+}
+
+main section > div > div > div span,
+main section > div > div > div form {
+    
+    position: absolute;
+    
+}
+
+main section > div > div > div span:first-of-type {
+    
+    border: 1px;
+    border-color: currentColor;
+    border-style: solid;
+    font-size: $copy-small-size;
+    left: -2.5em;
+    padding-bottom: 0.1em;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    padding-top: 0.15em;
+    top: 0.25em;
+    text-align: center;
+    width: 1.15em;
+    
+}
+
+main section > div > div > div span:last-of-type,
+main section > div > div > div form {
+    
+    cursor: pointer;
+    pointer-events: all;
+    right: 0;
+    top: 0.25em;
+    
+}
+
+main section > div > div > div form {
+    
+    right: -1.85em;
+    top: 0;
     
 }
 
@@ -197,13 +278,6 @@ b, strong {
 section {
     
     position: relative;
-    
-}
-
-/* figure wrap */
-section > div {
-    
-    display: flex;
     
 }
 
@@ -330,26 +404,8 @@ tfoot td {
 
 form {
     
-    margin-bottom: 1em;
-    margin-left: -6em;
-    padding: 1.5em;
-    padding-left: 6em;
-    padding-right: 6em;
-    width: 100%;
-    
-}
-
-form fieldset {
-    
-    display: inline-block;
-    margin-right: 1em;
-    position: relative;
-    
-}
-
-form fieldset label {
-    
-    cursor: pointer;
+    margin: 0;
+    padding: 0;
     
 }
 
@@ -405,6 +461,12 @@ input[disabled],
 button[disabled] {
     
     opacity: 0.3;
+    
+}
+
+label {
+    
+    display: none;
     
 }
 
