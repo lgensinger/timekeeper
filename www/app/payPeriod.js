@@ -1,33 +1,57 @@
 define(function (require) {
     
     var hours = require("./settings");
-    
+  
     // data
     var today = moment();
-    
+
     // get current pay period
     // assumes a pay period begins on an even week number and contains 2 weeks
-    var cWeekNumber = parseInt(moment(today).format("W"));
+    var cWeekNumber = parseInt(moment(today).format("w"));
     
     // generate a week of date data
     function generateWeek(week) {
-        
+
         // custom day names
         var dayNames = {
             sameDay: "[Today]",
             nextDay: "[Tomorrow]",
-            nextWeek: "dddd",
+            nextWeek: function(now) {
+                if (now.week() == this.week()) {
+                    return "dddd"
+                } else if (now.week() !== this.week() && (this.dayOfYear() - now.dayOfYear()) <= 2) {
+                    return "dddd"
+                } else {
+                    return "[Next] dddd"
+                };
+            },
             lastDay: "[Yesterday]",
-            lastWeek: "[Last] dddd",
-            sameElse: "[Last] dddd"
+            lastWeek: function(now) {
+                if (now.week() == this.week() && (now.dayOfYear() - this.dayOfYear()) < 5) {
+                    return "dddd"
+                } else if (this.week() % 2 !== 0) {
+                    return "dddd"
+                } else {
+                    return "[Last] dddd"
+                };
+            },
+            sameElse: function(now) {
+                if (this.dayOfYear() - now.dayOfYear() >= 6) {
+                    return "[Next] dddd"
+                } else if (now.dayOfYear() - this.dayOfYear() >= 6) {
+                    return "[Last] dddd"
+                } else {
+                    return "dddd"
+                }
+            }
         };
         
         // get last day of week 1
         var day = moment().day("Saturday").week(week);
-        
+        var w = week;
         var week = [
             {
-                name: day.calendar(null, dayNames),
+                name: day.calendar(today, dayNames),
                 nameStandard: day.format("D MMMM"),
                 dateNumber: day.format("D"),
                 id: day.format("YYYY-MM-DD"), 
@@ -42,7 +66,7 @@ define(function (require) {
             var lastDate = week[i];
             var newDate = moment(lastDate.id);
             var dateObj = {
-                name: newDate.subtract(1, "day").calendar(null, dayNames),
+                name: newDate.subtract(1, "day").calendar(today, dayNames),
                 nameStandard: newDate.format("D MMMM"),
                 dateNumber: newDate.format("D"),
                 id: newDate.format("YYYY-MM-DD"),

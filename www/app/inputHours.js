@@ -1,13 +1,14 @@
 define(function (require) {
     
     var hours = require("./settings");
+    var mixins = require("./logMixins");
     
     return React.createClass({
         
         displayName: "inputHours",
         
         // lifecycle
-        //mixins: this.props.logs,
+        mixins: mixins,
         
         //properties
         propTypes: {
@@ -15,8 +16,7 @@ define(function (require) {
             min: React.PropTypes.number,
             dayID: React.PropTypes.string.isRequired,
             hours: React.PropTypes.number.isRequired,
-            name: React.PropTypes.string,
-            logs: React.PropTypes.array.isRequired
+            name: React.PropTypes.string
         },
         
         // set default properties

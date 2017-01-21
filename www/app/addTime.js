@@ -1,30 +1,8 @@
 define(function (require) {
         
-    // data
     var hours = require("./settings");
     var payPeriod = require("./payPeriod");
-    
-    // lifecycle
-    var logMixin = {
-        _log: function(methodName, args) {
-            console.log(methodName, args);
-        },
-        componentWillUpdte: function() {
-            this._log("componentWillUpdate", arguments);
-        },
-        componentDidUpdate: function() {
-            this._log("componentDidUpdate", arguments);
-        },
-        componentWillMount: function() {
-            this._log("componentWillMount", arguments);
-        },
-        componentDidMount: function() {
-            this._log("componentDidMount", arguments);
-        },
-        componentWillUnmount: function() {
-            this._log("componentWillUnmount", arguments);
-        }
-    };
+    var mixins = require("./logMixins");
     
     // hours
     var displayHours = require("./displayHours");
@@ -136,8 +114,7 @@ define(function (require) {
                                     hoursInput = React.createElement(inputHours, {
                                         dayID: day.id,
                                         hours: day.hours,
-                                        name: day.name,
-                                        logs: [logMixin]
+                                        name: day.name
                                     });
 
                                 };
