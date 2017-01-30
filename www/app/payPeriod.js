@@ -55,13 +55,15 @@ define(function (require) {
                 nameStandard: day.format("D MMMM"),
                 dateNumber: day.format("D"),
                 id: day.format("YYYY-MM-DD"), 
-                hours: day.day() > 0 && day.day() < 6 ? hours.day : 0
+                hours: day.day() > 0 && day.day() < 6 ? hours.day : 0,
+                start: hours.start[day.day()],
+                end: hours.end[day.day()]
             }
         ];
 
         // create an array of day names
         for (var i=0; i < 6; i++) {
-
+                        
             // get day added
             var lastDate = week[i];
             var newDate = moment(lastDate.id);
@@ -70,7 +72,9 @@ define(function (require) {
                 nameStandard: newDate.format("D MMMM"),
                 dateNumber: newDate.format("D"),
                 id: newDate.format("YYYY-MM-DD"),
-                hours: newDate.day() > 0 && newDate.day() < 6 ? hours.day : 0
+                hours: newDate.day() > 0 && newDate.day() < 6 ? hours.day : 0,
+                start: hours.start[newDate.day()],
+                end: hours.end[newDate.day()]
             };
 
             // add to array

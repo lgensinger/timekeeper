@@ -19,8 +19,7 @@
 /* --- !code
 /* !CUSTOM
 /* --- !active
-/* --- !default
-/* --- !highlight
+/* --- !chart
 
 /******************************* !IMPORTS *******************************/
 /* CSS Document */
@@ -63,35 +62,35 @@
 /***********************/
 /* regular */
 @font-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/SourceSansPro-Regular.ttf") format("truetype"); }
+  src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype"); }
 
 /* light */
 @font-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
   src: url("../assets/fonts/OpenSans-Light.ttf") format("truetype"); }
 
 /* italic */
 @font-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-style: italic;
   font-weight: 400;
   src: url("../assets/fonts/OpenSans-Italic.ttf") format("truetype"); }
 
 /* bold */
 @font-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
   src: url("../assets/fonts/OpenSans-Bold.ttf") format("truetype"); }
 
 /* black */
 @font-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 800;
   src: url("../assets/fonts/OpenSans-ExtraBold.ttf") format("truetype"); }
@@ -101,21 +100,21 @@
 /********************/
 /* regular */
 @font-face {
-  font-family: "Oswald", serif;
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
   src: url("../assets/fonts/Oswald-Regular.ttf") format("truetype"); }
 
 /* light */
 @font-face {
-  font-family: "Oswald", serif;
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 300;
   src: url("../assets/fonts/Oswald-Light.ttf") format("truetype"); }
 
 /* bold */
 @font-face {
-  font-family: "Oswald", serif;
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
   src: url("../assets/fonts/Oswald-Bold.ttf") format("truetype"); }
@@ -445,7 +444,7 @@ html, body {
 main {
   padding: 6em; }
 
-main > section {
+main section > div {
   display: flex; }
 
 /*******************/
@@ -462,10 +461,11 @@ hgroup, h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   max-width: 600px;
   min-width: 300px;
+  text-transform: capitalize;
   width: 60%; }
 
 h1, h2, h3 {
-  font-family: "Oswald", serif; }
+  font-family: "Oswald", sans-serif; }
 
 h1 {
   font-size: 1.5em;
@@ -475,69 +475,23 @@ h2, h3 {
   font-size: 1em;
   line-height: 1.5; }
 
-/* panel headlines/subheads */
-hgroup h1,
-section > h1 {
-  font-size: 1.5em;
-  margin-bottom: 0.25em;
-  text-transform: capitalize; }
-
-/* header subtext */
-hgroup p {
-  font-style: italic;
-  margin-bottom: 0.5em; }
-
-/* into headline */
-main > hgroup h1 {
-  font-size: 2.25em;
-  font-weight: 300;
-  margin-bottom: 0.5em;
-  width: 100%; }
-
-/* intro subhead */
-main > hgroup h2 {
-  font-size: 1em;
-  line-height: 1.5; }
-
-main section hgroup {
-  left: -1em;
-  position: relative;
-  text-align: center; }
-
-main section hgroup + div {
-  margin-top: 2em;
-  position: relative; }
-
-main section hgroup + div:before {
-  background: currentColor;
-  content: "";
-  left: -2em;
-  height: 1px;
-  position: absolute;
-  top: -1em;
-  width: calc(100% + 2em); }
-
-/* intro text */
-main > hgroup p {
-  font-style: normal; }
-
-main section > div:not(:last-child) {
+main section > div > div:not(:last-child) {
   margin-right: 8em; }
 
-main section > div > div > div {
+main section > div > div > div > div {
   margin-bottom: 0.75em;
   position: relative; }
 
-main section > div > div > div span,
-main section > div > div > div form {
+main section > div > div > div > div span,
+main section > div > div > div > div form {
   position: absolute; }
 
-main section > div > div > div span:first-of-type {
+main section > div > div > div > div span:first-of-type {
   border: 1px;
   border-color: currentColor;
   border-style: solid;
   font-size: 0.75em;
-  left: -2.5em;
+  left: 0;
   padding-bottom: 0.1em;
   padding-left: 0.25em;
   padding-right: 0.25em;
@@ -546,14 +500,19 @@ main section > div > div > div span:first-of-type {
   text-align: center;
   width: 1.15em; }
 
-main section > div > div > div span:last-of-type,
-main section > div > div > div form {
+/* day name */
+main section > div > div > div > div p {
+  left: 2.5em;
+  position: relative; }
+
+main section > div > div > div > div span:last-of-type,
+main section > div > div > div > div form {
   cursor: pointer;
   pointer-events: all;
   right: 0;
   top: 0.25em; }
 
-main section > div > div > div form {
+main section > div > div > div > div form {
   right: -1.85em;
   top: 0; }
 
@@ -581,33 +540,6 @@ small {
 b, strong {
   font-weight: 700; }
 
-/*********************/
-/***** !figures ******/
-/*********************/
-section {
-  position: relative; }
-
-article {
-  width: 400px; }
-
-article:not(:last-child) {
-  margin-right: 50px; }
-
-article figure {
-  max-width: 500px;
-  min-width: 350px;
-  padding: 1em; }
-
-article strong {
-  text-transform: capitalize; }
-
-/* wireframe boxes */
-article figure rect {
-  stroke-width: 4px; }
-
-/*****************/
-/***** !svg ******/
-/*****************/
 /*******************/
 /***** !lists ******/
 /*******************/
@@ -722,91 +654,16 @@ code {
 .active {
   font-weight: 800; }
 
-/*********************/
-/***** !default ******/
-/*********************/
-/* default */
-.default {
-  border-bottom: 6px;
-  border-bottom-style: solid;
-  border-top: 6px;
-  border-top-style: solid;
-  padding: 0.25em; }
-
-/* default text */
-.default:before {
-  content: "default";
-  font-size: 0.75em;
-  font-weight: 700;
-  left: 50%;
-  position: absolute;
-  top: 4em;
-  transform: translateX(-50%);
-  white-space: nowrap; }
-
-/***********************/
-/***** !highlight ******/
-/***********************/
-.highlight {
-  font-weight: 700; }
-
-/* subhead after form */
-form ~ h2,
-.action ~ h2 {
-  font-size: 1.5em;
-  font-weight: 300;
-  margin-top: 2em;
-  max-width: 100%;
-  position: relative;
-  text-transform: none;
+/*******************/
+/***** !chart ******/
+/*******************/
+svg {
+  height: 100%;
   width: 100%; }
 
-form ~ h2:before,
-.action ~ h2:before {
-  border-top: 1px;
-  border-top-style: solid;
-  border-top-color: currentColor;
-  content: "";
-  left: -6em;
-  position: absolute;
-  top: -0.5em;
-  width: calc(100% + 10em); }
+svg path {
+  fill: #292929; }
 
-/* text wrap after radio buttons */
-form ~ div div,
-.action ~ div div {
-  width: 100%; }
-
-/* text after radio buttons */
-form ~ div p,
-.action ~ div p {
-  margin-bottom: 0.5em;
-  margin-top: 1em; }
-
-/* bolded text after radio buttons */
-form ~ div p strong,
-.action ~ div p strong {
-  color: black;
-  font-size: 0.85em;
-  font-weight: 700; }
-
-/* action statement following radio buttons */
-form + p,
-.action {
-  font-size: 1.1em;
-  line-height: 1.5;
-  margin-top: 2em;
-  max-width: 600px; }
-
-/* current info in margin */
-.current {
-  display: block;
-  left: -5em;
-  padding: 1em;
-  padding-top: 0;
-  position: absolute;
-  top: 5em; }
-
-.current p {
-  color: black;
-  font-size: 0.75em; }
+svg text {
+  fill: #292929;
+  text-anchor: middle; }

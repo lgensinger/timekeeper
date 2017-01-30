@@ -1,12 +1,12 @@
 define(function (require) {
         
-    var hours = require("./settings");
-    var payPeriod = require("./payPeriod");
-    var mixins = require("./logMixins");
+    var hours = require("../settings");
+    var payPeriod = require("../payPeriod");
+    var mixins = require("../logMixins");
     
     // hours
-    var displayHours = require("./displayHours");
-    var inputHours = require("./inputHours");
+    var displayHours = require("../displayHours");
+    var inputHours = require("../inputHours");
        
     // create input number component
     var addTime = React.createClass({
@@ -42,7 +42,7 @@ define(function (require) {
         render: function() {
                         
             // week wrap
-            return React.DOM.section(
+            return React.DOM.div(
                 
                 // attributes
                 {

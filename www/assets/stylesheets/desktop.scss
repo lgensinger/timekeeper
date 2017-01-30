@@ -23,8 +23,7 @@
 /* --- !code
 /* !CUSTOM
 /* --- !active
-/* --- !default
-/* --- !highlight
+/* --- !chart
 
 /******************************* !IMPORTS *******************************/
 
@@ -59,7 +58,7 @@ main {
     
 }
 
-main > section {
+main section > div {
     
     display: flex;
     
@@ -85,6 +84,7 @@ hgroup, h1, h2, h3, h4, h5, h6 {
     line-height: $headline-leading;
     max-width: $copy-max-width;
     min-width: $copy-min-width;
+    text-transform: capitalize;
     width: 60%;
     
 }
@@ -109,103 +109,33 @@ h2, h3 {
     
 }
 
-/* panel headlines/subheads */
-hgroup h1,
-section > h1 {
-    
-    font-size: $headline-size;
-    margin-bottom: 0.25em;
-    text-transform: capitalize;
-    
-}
-
-/* header subtext */
-hgroup p {
-    
-    font-style: italic;
-    margin-bottom: 0.5em;
-    
-}
-
-/* into headline */
-main > hgroup h1 {
-    
-    font-size: $app-title-size;
-    font-weight: $sans-serif-light;
-    margin-bottom: 0.5em;
-    width: 100%;
-    
-}
-
-/* intro subhead */
-main > hgroup h2 {
-    
-    font-size: $subhead-size;
-    line-height: $subhead-leading;
-    
-}
-
-main section hgroup {
-    
-    left: -1em;
-    position: relative;
-    text-align: center;
-    
-}
-
-main section hgroup + div {
-    
-    margin-top: 2em;
-    position: relative;
-    
-}
-
-main section hgroup + div:before {
-    
-    background: currentColor;
-    content: "";
-    left: -2em;
-    height: 1px;
-    position: absolute;
-    top: -1em;
-    width: calc(100% + 2em);
-    
-}
-
-/* intro text */
-main > hgroup p {
-    
-    font-style: normal;
-    
-}
-
-main section > div:not(:last-child) {
+main section > div > div:not(:last-child) {
     
     margin-right: 8em;
     
 }
 
-main section > div > div > div {
+main section > div > div > div > div {
     
     margin-bottom: 0.75em;
     position: relative;
     
 }
 
-main section > div > div > div span,
-main section > div > div > div form {
+main section > div > div > div > div span,
+main section > div > div > div > div form {
     
     position: absolute;
     
 }
 
-main section > div > div > div span:first-of-type {
+main section > div > div > div > div span:first-of-type {
     
     border: 1px;
     border-color: currentColor;
     border-style: solid;
     font-size: $copy-small-size;
-    left: -2.5em;
+    left: 0;
     padding-bottom: 0.1em;
     padding-left: 0.25em;
     padding-right: 0.25em;
@@ -216,8 +146,16 @@ main section > div > div > div span:first-of-type {
     
 }
 
-main section > div > div > div span:last-of-type,
-main section > div > div > div form {
+/* day name */
+main section > div > div > div > div p {
+    
+    left: 2.5em;
+    position: relative;
+    
+}
+
+main section > div > div > div > div span:last-of-type,
+main section > div > div > div > div form {
     
     cursor: pointer;
     pointer-events: all;
@@ -226,7 +164,7 @@ main section > div > div > div form {
     
 }
 
-main section > div > div > div form {
+main section > div > div > div > div form {
     
     right: -1.85em;
     top: 0;
@@ -270,55 +208,6 @@ b, strong {
     font-weight: $sans-serif-bold;
     
 }
-
-/*********************/
-/***** !figures ******/
-/*********************/
-
-section {
-    
-    position: relative;
-    
-}
-
-article {
-    
-    width: 400px;
-    
-}
-
-article:not(:last-child) {
-    
-    margin-right: 50px;
-    
-}
-
-article figure {
-    
-    max-width: 500px;
-    min-width: 350px;
-    padding: 1em;
-    
-}
-
-article strong {
-    
-    text-transform: capitalize;
-    
-}
-
-/* wireframe boxes */
-article figure rect {
-
-    stroke-width: 4px;
-    
-}
-
-/*****************/
-/***** !svg ******/
-/*****************/
-
-
 
 /*******************/
 /***** !lists ******/
@@ -504,126 +393,26 @@ code {
     
 }
 
-/*********************/
-/***** !default ******/
-/*********************/
+/*******************/
+/***** !chart ******/
+/*******************/
 
-/* default */
-.default {
+svg {
     
-    border-bottom: 6px;
-    border-bottom-style: solid;
-    border-top: 6px;
-    border-top-style: solid;
-    padding: 0.25em;
-    
-}
-
-/* default text */
-.default:before {
-    
-    content: "default";
-    font-size: $copy-small-size;
-    font-weight: $sans-serif-bold;
-    left: 50%;
-    position: absolute;
-    top: 4em;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    
-}
-
-/***********************/
-/***** !highlight ******/
-/***********************/
-
-.highlight {
-    
-    font-weight: $sans-serif-bold;
-    
-}
-
-/* subhead after form */
-form ~ h2,
-.action ~ h2 {
-    
-    font-size: $headline-size;
-    font-weight: $sans-serif-light;
-    margin-top: 2em;
-    max-width: 100%;
-    position: relative;
-    text-transform: none;
+    height: 100%;
     width: 100%;
+        
+}
+
+svg path {
+    
+    fill: rgb(41, 41, 41);
     
 }
 
-form ~ h2:before,
-.action ~h2:before {
+svg text {
     
-    border-top: 1px;
-    border-top-style: solid;
-    border-top-color: currentColor;
-    content: "";
-    left: -6em;
-    position: absolute;
-    top: -0.5em;
-    width: calc(100% + 10em);
-    
-}
-
-/* text wrap after radio buttons */
-form ~ div div,
-.action ~ div div {
-    
-    width: 100%;
-    
-}
-
-/* text after radio buttons */
-form ~ div p,
-.action ~ div p {
-    
-    margin-bottom: 0.5em;
-    margin-top: 1em;
-    
-}
-
-/* bolded text after radio buttons */
-form ~ div p strong,
-.action ~ div p strong {
-    
-    color: black;
-    font-size: $button-regular;
-    font-weight: $sans-serif-bold;
-    
-}
-
-/* action statement following radio buttons */
-form + p,
-.action {
-    
-    font-size: $copy-callout-size;
-    line-height: $copy-callout-leading;
-    margin-top: 2em;
-    max-width: $copy-max-width;
-    
-}
-
-/* current info in margin */
-.current {
-    
-    display: block;
-    left: -5em;
-    padding: 1em;
-    padding-top: 0;
-    position: absolute;
-    top: 5em;
-    
-}
-
-.current p {
-    
-    color: black;
-    font-size: $copy-small-size;
+    fill: rgb(41, 41, 41);
+    text-anchor: middle;
     
 }
