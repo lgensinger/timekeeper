@@ -25,19 +25,8 @@ define(function (require) {
         // set state
         getInitialState: function() {
             return {
-                data: this.props.payPeriod,
-                edit: null
+                data: this.props.payPeriod
             };
-        },
-        
-        // listen for click on day
-        _showEditor: function(event) {
-            this.setState({
-                edit: {
-                    week: parseInt(event.target.dataset.week),
-                    day: parseInt(event.target.dataset.day)
-                }
-            });
         },
         
         // render
@@ -49,8 +38,29 @@ define(function (require) {
                 // attributes
                 null,
                 
-                // content
-                chart
+                // each week
+                this.state.data.map(function(week, idx) {
+                    
+                    // each week
+                    return React.DOM.div(
+                        
+                        // attributes
+                        {
+                            key: idx
+                        },
+                        
+                        // content
+                         React.createElement(chart, {
+                            height: 500,
+                            width: 500,
+                            padAngle: 0,
+                            rings: week.dates,
+                            ticks: hours.ticks
+                        })
+                    
+                    )
+                    
+                }, this)
                 
             )
             

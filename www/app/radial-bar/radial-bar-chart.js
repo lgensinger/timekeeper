@@ -37,96 +37,82 @@ define(function (require) {
         
         // render
         render: function() {
-                        
-            // chart wrap
-            return React.DOM.div(
-                
-                // attributes
-                null,
 
-                // content
-                React.DOM.svg(
+                // chart
+            return React.DOM.svg(
                     
-                    // attributes
+                // attributes
+                {
+                    viewBox: "0 0 " + this.props.width + " " + this.props.height
+                },
+
+                // slice wrap
+                React.DOM.g(
+
                     {
-                        viewBox: "0 0 " + this.props.width + " " + this.props.height
+                        transform: "translate(" + (this.props.width / 2) + "," + (this.props.height / 2) + ")"
                     },
 
-                    // slice wrap
-                    React.DOM.g(
-                        
-                        {
-                            transform: "translate(" + (this.props.width / 2) + "," + (this.props.height / 2) + ")"
-                        },
-                        
-                        // each slice
-                        this.state.slices.map(function(slice, idx) {
-                            
-                            return React.DOM.g(
-                                
-                                // attributes
-                                {
-                                    key: idx
-                                },
-                                
-                                // content
-                                // label
-                                React.createElement(label, {
-                                    arc: slice,
-                                    radius: this.state.radius,
-                                    rings: this.state.rings.length
-                                })
-                            
-                            )
-                            
-                        },this)
-                    ),
-                    
-                    // ring wrap
-                    React.DOM.g(
-                        
-                        // attributes
-                        {
-                            transform: "translate(" + (this.props.width / 2) + "," + (this.props.height / 2) + ")"
-                        },
-                        
-                        // each ring
-                        this.state.rings.map(function(ring, idx) {
-                            
-                            return React.DOM.g(
+                    // each slice
+                    this.state.slices.map(function(slice, idx) {
 
-                                // attributes
-                                {
-                                    key: idx
-                                },
+                        return React.DOM.g(
 
-                                // arc
-                                React.createElement(arc, {
-                                    ring: ring,
-                                    radius: this.state.radius,
-                                    idx: idx
-                                })
+                            // attributes
+                            {
+                                key: idx
+                            },
 
-                            )
+                            // content
+                            // label
+                            React.createElement(label, {
+                                arc: slice,
+                                radius: this.state.radius,
+                                rings: this.state.rings.length
+                            })
 
-                        }, this)
+                        )
 
-                    )
-                    
+                    },this)
+                ),
+
+                // ring wrap
+                React.DOM.g(
+
+                    // attributes
+                    {
+                        transform: "translate(" + (this.props.width / 2) + "," + (this.props.height / 2) + ")"
+                    },
+
+                    // each ring
+                    this.state.rings.map(function(ring, idx) {
+
+                        return React.DOM.g(
+
+                            // attributes
+                            {
+                                key: idx
+                            },
+
+                            // arc
+                            React.createElement(arc, {
+                                ring: ring,
+                                radius: this.state.radius,
+                                idx: idx
+                            })
+
+                        )
+
+                    }, this)
+
                 )
-                
+
             )
             
         }
         
     });
     
-    return React.createElement(chart, {
-        height: 500,
-        width: 500,
-        padAngle: 0,
-        rings: payPeriod[0].dates,
-        ticks: settings.ticks
-    });
+    return chart;
     
 });

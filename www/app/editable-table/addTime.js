@@ -101,7 +101,7 @@ define(function (require) {
                                 var content = day;
                                 var edit = this.state.edit;
                                 var hoursInput = React.createElement(displayHours, {
-                                    hours: content.hours,
+                                    hours: content.end - content.start,
                                     day: idxD,
                                     week: idxW
                                 });
@@ -109,11 +109,11 @@ define(function (require) {
                                 // check if edit is set and
                                 // if the active edit is this day
                                 if (edit && edit.week === idxW && edit.day === idxD) {
-                                    
+                                     
                                     // make a form to input the day hours
                                     hoursInput = React.createElement(inputHours, {
                                         dayID: day.id,
-                                        hours: day.hours,
+                                        hours: day.end - day.start,
                                         name: day.name
                                     });
 
@@ -171,7 +171,7 @@ define(function (require) {
         React.createElement(addTime ,{
             payPeriod: payPeriod
         }),
-        document.getElementById("app")
+        document.getElementById("time")
     );
     
 });

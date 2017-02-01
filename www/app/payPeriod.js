@@ -1,5 +1,13 @@
 define(function (require) {
     
+    function getRandomInt(min, max) {
+        
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    
+    };
+    
     var hours = require("./settings");
   
     // data
@@ -45,7 +53,7 @@ define(function (require) {
                 }
             }
         };
-        
+        var a = getRandomInt(0, hours.max);
         // get last day of week 1
         var day = moment().day("Saturday").week(week);
         var w = week;
@@ -56,14 +64,16 @@ define(function (require) {
                 dateNumber: day.format("D"),
                 id: day.format("YYYY-MM-DD"), 
                 hours: day.day() > 0 && day.day() < 6 ? hours.day : 0,
-                start: hours.start[day.day()],
-                end: hours.end[day.day()]
+                startForecast: hours.start[day.day()],
+                endForecast: hours.end[day.day()],
+                start: a,
+                end: getRandomInt(a, a + hours.day)
             }
         ];
 
         // create an array of day names
         for (var i=0; i < 6; i++) {
-                        
+            var b = getRandomInt(0, hours.max);
             // get day added
             var lastDate = week[i];
             var newDate = moment(lastDate.id);
@@ -73,8 +83,10 @@ define(function (require) {
                 dateNumber: newDate.format("D"),
                 id: newDate.format("YYYY-MM-DD"),
                 hours: newDate.day() > 0 && newDate.day() < 6 ? hours.day : 0,
-                start: hours.start[newDate.day()],
-                end: hours.end[newDate.day()]
+                startForecast: hours.start[newDate.day()],
+                endForecast: hours.end[newDate.day()],
+                start: b,
+                end: getRandomInt(b, b + hours.day)
             };
 
             // add to array
