@@ -17,7 +17,8 @@ define(function (require) {
         propTypes: {
             payPeriod: React.PropTypes.arrayOf(
                 React.PropTypes.object
-            )
+            ),
+            updateHours: React.PropTypes.func
         },
         
         // set state
@@ -30,12 +31,45 @@ define(function (require) {
         
         // listen for click on day
         _showEditor: function(event) {
+            
+            // set state
             this.setState({
                 edit: {
                     week: parseInt(event.target.dataset.week),
                     day: parseInt(event.target.dataset.day)
                 }
             });
+            
+        },
+        
+        // listen for editing finish
+        _save: function(event) {
+            
+            // stop default
+            event.preventDefault();
+            
+            // get bound data
+            var week = this.state.edit.week;
+            var day = this.state.edit.day;
+            
+            // get input
+            var input = event.target;
+            
+            // clone data
+            var data = this.state.data.slice();
+            
+            // get edited row
+            var editDay = data[week].dates[day];
+            
+            // update data based on input
+            editDay.end = editDay.start + parseInt(input.value);
+            
+            // set the state to reflect input
+            /*this.setState({
+                edit: null,
+                data: data
+            });*/
+            this.props.updateHours(data);
         },
         
         // render
@@ -46,7 +80,8 @@ define(function (require) {
                 
                 // attributes
                 {
-                    onClick: this._showEditor
+                    onDoubleClick: this._showEditor,
+                    onBlur: this._save
                 },
                 
                 // each week
@@ -114,9 +149,10 @@ define(function (require) {
                                     hoursInput = React.createElement(inputHours, {
                                         dayID: day.id,
                                         hours: day.end - day.start,
-                                        name: day.name
+                                        name: day.name,
+                                        onDoubleClick: this.focus
                                     });
-
+                                    
                                 };
                                 
                                 return React.DOM.div(
@@ -167,11 +203,6 @@ define(function (require) {
     });
     
     // day component
-    ReactDOM.render(
-        React.createElement(addTime ,{
-            payPeriod: payPeriod
-        }),
-        document.getElementById("time")
-    );
+    return addTime;
     
 });

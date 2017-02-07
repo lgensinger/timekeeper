@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     
     function getRandomInt(min, max) {
         
@@ -66,8 +66,10 @@ define(function (require) {
                 hours: day.day() > 0 && day.day() < 6 ? hours.day : 0,
                 startForecast: hours.start[day.day()],
                 endForecast: hours.end[day.day()],
-                start: a,
-                end: getRandomInt(a, a + hours.day)
+                //start: a,
+                start: 7,
+                end: 15
+                //end: getRandomInt(a, a + hours.day)
             }
         ];
 
@@ -85,8 +87,10 @@ define(function (require) {
                 hours: newDate.day() > 0 && newDate.day() < 6 ? hours.day : 0,
                 startForecast: hours.start[newDate.day()],
                 endForecast: hours.end[newDate.day()],
-                start: b,
-                end: getRandomInt(b, b + hours.day)
+                //start: b,
+                start: 7,
+                end: 15
+                //end: getRandomInt(b, b + hours.day)
             };
 
             // add to array

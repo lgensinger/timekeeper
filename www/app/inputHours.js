@@ -27,6 +27,12 @@ define(function (require) {
             };
         },
         
+        // lifecycle
+        componentDidMount: function() {
+            this.refs.change.focus();
+            this.refs.change.select();
+        },
+        
         // render
         render: function() {
             
@@ -42,7 +48,8 @@ define(function (require) {
                     type: "number",
                     id: "select-" + this.props.dayID,
                     name: "select-" + this.props.dayID,
-                    defaultValue: this.props.hours
+                    defaultValue: this.props.hours,
+                    ref: "change"
                 }),
 
                 // label

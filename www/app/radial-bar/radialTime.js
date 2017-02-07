@@ -1,17 +1,13 @@
 define(function (require) {
         
+    // data
     var hours = require("../settings");
-    var payPeriod = require("../payPeriod");
-    
-    // hours
     var displayHours = require("../displayHours");
     var inputHours = require("../inputHours");
-    
-    // charts
     var chart = require("./radial-bar-chart");
        
     // create input number component
-    var radialTime = React.createClass({
+    return React.createClass({
         
         displayName: "radialTime",
         
@@ -67,13 +63,5 @@ define(function (require) {
         }
         
     });
-    
-    // day component
-    ReactDOM.render(
-        React.createElement(radialTime ,{
-            payPeriod: payPeriod
-        }),
-        document.getElementById("viz")
-    );
     
 });
