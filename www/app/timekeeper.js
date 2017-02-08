@@ -3,6 +3,7 @@ define(function(require) {
     // data
     var workspace = require("./layout");
     var payPeriod = require("./payPeriod");
+    var settings = require("./settings");
     
     // create timekeeper app
     var timekeeper = React.createClass({
@@ -16,7 +17,8 @@ define(function(require) {
             ),
             payPeriod: React.PropTypes.arrayOf(
                 React.PropTypes.object
-            )
+            ),
+            settings: React.PropTypes.object
         },
         
         // set state
@@ -111,7 +113,8 @@ define(function(require) {
                             // content
                             React.createElement(component, {
                                 payPeriod: this.state.payPeriod,
-                                updateHours: updateHours
+                                updateHours: updateHours,
+                                settings: this.props.settings
                             })
 
                         )
@@ -130,7 +133,8 @@ define(function(require) {
     ReactDOM.render(
         React.createElement(timekeeper, {
             sections: workspace.sections,
-            payPeriod: payPeriod
+            payPeriod: payPeriod,
+            settings: settings
         }),
         document.getElementById("app")
     );

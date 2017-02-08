@@ -1,10 +1,6 @@
 define(function (require) {
-        
-    var hours = require("../settings");
-    var payPeriod = require("../payPeriod");
-    var mixins = require("../logMixins");
-    
-    // hours
+            
+    // sub components
     var displayHours = require("../displayHours");
     var inputHours = require("../inputHours");
        
@@ -18,7 +14,8 @@ define(function (require) {
             payPeriod: React.PropTypes.arrayOf(
                 React.PropTypes.object
             ),
-            updateHours: React.PropTypes.func
+            updateHours: React.PropTypes.func,
+            settings: React.PropTypes.object
         },
         
         // set state
@@ -62,13 +59,9 @@ define(function (require) {
             var editDay = data[week].dates[day];
             
             // update data based on input
-            editDay.end = editDay.start + parseInt(input.value);
+            editDay.end = editDay.start + parseFloat(input.value);
             
-            // set the state to reflect input
-            /*this.setState({
-                edit: null,
-                data: data
-            });*/
+            // expose to parent
             this.props.updateHours(data);
         },
         
@@ -81,7 +74,8 @@ define(function (require) {
                 // attributes
                 {
                     onDoubleClick: this._showEditor,
-                    onBlur: this._save
+                    onBlur: this._save,
+                    onChange: this._save
                 },
                 
                 // each week
@@ -147,6 +141,9 @@ define(function (require) {
                                      
                                     // make a form to input the day hours
                                     hoursInput = React.createElement(inputHours, {
+                                        max: this.props.settings.max,
+                                        min: this.props.settings.min,
+                                        step: this.props.settings.step,
                                         dayID: day.id,
                                         hours: day.end - day.start,
                                         name: day.name,

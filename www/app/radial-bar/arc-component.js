@@ -30,16 +30,42 @@ define(function () {
         
         // arc function
         createArc: function(_self) {
+            
+            var arcD = _self.arc(this.props.ring);
+            var startPoint = arcD.split(" ")[0].split("A")[0].split("M")[1].split(",");
                             
-            return React.DOM.path(
+            return React.DOM.g(
 
                 // attributes
-                {
-                    d: _self.arc(this.props.ring)
-                },
+                null,
 
-                // content
-                null
+                // arc
+                React.DOM.path(
+
+                    // attributes
+                    {
+                        d: _self.arc(this.props.ring)
+                    },
+
+                    // content
+                    null
+
+                ),
+                
+                // drag handle
+                React.DOM.circle(
+                    
+                    // attributes
+                    {
+                        r: 10,
+                        cx: startPoint[0],
+                        cy: startPoint[1]
+                    },
+                    
+                    // content
+                    null
+                    
+                )
 
             )
                                         
@@ -49,7 +75,7 @@ define(function () {
         render: function() {
             
             var arc = this.createArc(this);
-                                    
+            
             // svg arc
             return arc
             

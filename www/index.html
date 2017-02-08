@@ -111,22 +111,21 @@ var circle = arcGroup.append("circle")
 
   // .attr("cx", 0)
   // .attr("cy", 5 + circleRadius - h/2)
-  .attr("cursor", "move")
-  .call( d3.behavior.drag().on('drag', function(){
+  //.attr("cursor", "move")
+  /*.call( d3.behavior.drag().on('drag', function(){
     a = findAngle(d3.event.x, d3.event.y);
     
     currentStep = angleToStep(a);
     setAngleStep(currentStep);
     
     // moveCircle(a);
-  }) )
-  ;
+  }) );*/
 
 // init
-setAngleStep(currentStep);
+//setAngleStep(currentStep);
 
 // register scroll event
-$('#clock').bind('mousewheel', function(e){
+/*$('#clock').bind('mousewheel', function(e){
   if ( e.originalEvent.wheelDelta<0 ){
     currentStep--;
   }
@@ -140,7 +139,7 @@ $('#clock').bind('mousewheel', function(e){
   console.log('currentStep:', currentStep);
   
   setAngleStep(currentStep);
-});
+});*/
 
 $('.inc').click(function(){
   // currentStep++;
@@ -169,7 +168,7 @@ function setAngleStep(step) {
   if (step > maxStep || step < 0)
     return;
   
-  console.log('step:', step);
+  //console.log('step:', step);
   
   arcPath.transition()
     .duration(animateDuration)
@@ -183,14 +182,14 @@ function setAngleStep(step) {
 
 // animate function
 function arcTween(transition, newAngle, arc) {
-  console.log('newAngle:', newAngle);
+  //console.log('newAngle:', newAngle);
   // arc path transition
   transition.attrTween("d", function(d) {
     var interpolate = d3.interpolate(d.endAngle, newAngle);
     return function(t) {
       d.endAngle = interpolate(t);
       
-      console.log('end angle:', d.endAngle / anglePerStep / 4);
+      //console.log('end angle:', d.endAngle / anglePerStep / 4);
       
       // transalte circle
       anglePoint = Math.ceil(d.endAngle / anglePerStep) / 4;
@@ -215,7 +214,7 @@ function findAngle(x, y) {
   return (Math.atan(y/x) * 180 / Math.PI) + addAngle; 
 }
 
-function moveCircle(angle) {
+function moveCircle(angle) {console.log(angle);
   var r = h/2 - 15;
   var x = r * Math.sin(angle * Math.PI / 180);
   var y = -r * Math.cos(angle * Math.PI / 180);
@@ -225,9 +224,6 @@ function moveCircle(angle) {
     .attr("cy", y)
     ;
 }
-
-// ===
-console.log('[done]');
         </script>
 	</body>
     
