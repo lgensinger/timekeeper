@@ -109,20 +109,20 @@ var circle = arcGroup.append("circle")
   .attr("stroke", strokeColor)
   .attr("stroke-width", circleRadius/2 + 2)
 
-  // .attr("cx", 0)
-  // .attr("cy", 5 + circleRadius - h/2)
-  //.attr("cursor", "move")
-  /*.call( d3.behavior.drag().on('drag', function(){
+   .attr("cx", 0)
+   .attr("cy", 5 + circleRadius - h/2)
+  .attr("cursor", "move")
+  .call( d3.behavior.drag().on('drag', function(){console.log("b")
     a = findAngle(d3.event.x, d3.event.y);
     
     currentStep = angleToStep(a);
     setAngleStep(currentStep);
     
     // moveCircle(a);
-  }) );*/
+  }) );
 
 // init
-//setAngleStep(currentStep);
+setAngleStep(currentStep);
 
 // register scroll event
 /*$('#clock').bind('mousewheel', function(e){

@@ -404,9 +404,10 @@ svg {
         
 }
 
-svg path {
+svg path,
+svg circle {
     
-    fill: rgb(41, 41, 41);
+    fill: "rgb(41, 41, 41);"
     
 }
 
@@ -415,4 +416,15 @@ svg text {
     fill: rgb(41, 41, 41);
     text-anchor: middle;
     
+}
+
+svg text {
+    cursor: default;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+svg text::selection {
+    background: none;
 }

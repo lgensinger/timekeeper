@@ -90,7 +90,7 @@ define(function(require) {
                     
                     // save data from components
                     function updateHours(arg) {
-                        
+                        console.log(arg);
                         // set the state to reflect input
                         self.setState({
                             payPeriod: arg

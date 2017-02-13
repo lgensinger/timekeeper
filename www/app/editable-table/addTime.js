@@ -63,6 +63,7 @@ define(function (require) {
             
             // expose to parent
             this.props.updateHours(data);
+            
         },
         
         // render

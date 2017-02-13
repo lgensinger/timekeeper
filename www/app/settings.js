@@ -21,7 +21,7 @@ define(function () {
     };
     
     return {
-        day: hoursIncrement,
+        day: dayValue,
         min: minValue,
         max: maxValue,
         step: hoursIncrement,

@@ -75,25 +75,6 @@ button:not([disabled]):hover {
 button:active {
   background: #c8c8c8; }
 
-/*********************/
-/***** !figures ******/
-/*********************/
-article figure {
-  background: #bbe3ef; }
-
-/* wireframe boxes */
-article figure rect {
-  fill: transparent;
-  stroke: currentColor; }
-
-/* svg type */
-article figure text {
-  fill: currentColor;
-  stroke: transparent; }
-
-figcaption {
-  color: black; }
-
 /********************/
 /***** !tables ******/
 /********************/
@@ -106,33 +87,8 @@ tr:nth-child(even) {
 /*******************/
 /***** !forms ******/
 /*******************/
-form fieldset label:hover {
-  background: #eb7653;
-  color: #f4f4f4; }
-
-input[type="text"],
-textarea {
-  background: #c8c8c8; }
-
 input[type="number"] {
   color: currentColor; }
-
-input[type="radio"] + label {
-  background: rgba(244, 244, 244, 0.15); }
-
-input[type="radio"]:checked + label {
-  background: #ce6242;
-  color: #f4f4f4; }
-
-input[type="text"]:focus,
-textarea:focus {
-  background: white; }
-
-input[type="text"].ng-not-empty,
-textarea.ng-not-empty {
-  background: transparent;
-  padding-left: 0;
-  padding-right: 0; }
 
 /******************/
 /***** !code ******/

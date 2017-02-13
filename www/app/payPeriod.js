@@ -18,7 +18,7 @@ define(function(require) {
     var cWeekNumber = parseInt(moment(today).format("w"));
     
     // generate a week of date data
-    function generateWeek(week) {
+    function generateWeek(week, payPeriodIdx) {
 
         // custom day names
         var dayNames = {
@@ -66,6 +66,7 @@ define(function(require) {
                 hours: day.day() > 0 && day.day() < 6 ? hours.day : 0,
                 startForecast: hours.start[day.day()],
                 endForecast: hours.end[day.day()],
+                weekIdx: payPeriodIdx,
                 //start: a,
                 start: 7,
                 end: 15
@@ -87,6 +88,7 @@ define(function(require) {
                 hours: newDate.day() > 0 && newDate.day() < 6 ? hours.day : 0,
                 startForecast: hours.start[newDate.day()],
                 endForecast: hours.end[newDate.day()],
+                weekIdx: payPeriodIdx,
                 //start: b,
                 start: 7,
                 end: 15
@@ -112,7 +114,7 @@ define(function(require) {
         for (var i = 0; i < weeks.length; i++) {
             
             // generate week
-            var ppWeek = generateWeek(weeks[i]);
+            var ppWeek = generateWeek(weeks[i], i);
 
             // week
             var weekObj = {

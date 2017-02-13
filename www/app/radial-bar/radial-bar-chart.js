@@ -20,7 +20,8 @@ define(function (require) {
             ),
             ticks: React.PropTypes.arrayOf(
                 React.PropTypes.object
-            )
+            ),
+            updateRings: React.PropTypes.func
         },
         
         // set state
@@ -86,6 +87,32 @@ define(function (require) {
 
                     // each ring
                     this.state.rings.map(function(ring, idx) {
+                        
+                        var self = this;
+                        
+                        // save data from components
+                        function updateRing(arg) {
+                            
+                            // clone data
+                            var rings = self.state.rings.slice();
+                            
+                            // update individual ring in a week's set of rings
+                            rings[arg.key] = arg.ring;
+                            
+                            // set up ring with key to pass up to parent
+                            var data = {
+                                key: arg.ring.weekIdx,
+                                rings: rings
+                            };
+                            
+                            // expose to parent
+                            self.props.updateRings(data);
+                            // set the state to reflect interaction
+                            /*self.setState({
+                                rings: data
+                            });*/
+
+                        };
 
                         return React.DOM.g(
 
@@ -98,7 +125,8 @@ define(function (require) {
                             React.createElement(arc, {
                                 ring: ring,
                                 radius: this.state.radius,
-                                idx: idx
+                                idx: idx,
+                                updateRing: updateRing
                             })
 
                         )

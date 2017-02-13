@@ -91,38 +91,6 @@ button:active {
     
 }
 
-/*********************/
-/***** !figures ******/
-/*********************/
-
-article figure {
-    
-    background: $highlight-2;
-    
-}
-
-/* wireframe boxes */
-article figure rect {
-    
-    fill: transparent;
-    stroke: currentColor;
-    
-}
-
-/* svg type */
-article figure text {
-    
-    fill: currentColor;
-    stroke: transparent
-    
-}
-
-figcaption {
-    
-    color: black;
-    
-}
-
 /********************/
 /***** !tables ******/
 /********************/
@@ -143,52 +111,9 @@ tr:nth-child(even) {
 /***** !forms ******/
 /*******************/
 
-form fieldset label:hover {
-    
-    background: $link-hover;
-    color: $light-2-100;
-    
-}
-
-input[type="text"],
-textarea {
-    
-    background: $light-3-100;
-    
-}
-
 input[type="number"] {
     
     color: currentColor;
-    
-}
-
-input[type="radio"] + label {
-    
-    background: $light-2-15;
-    
-}
-
-input[type="radio"]:checked + label {
-    
-    background: $link-basic;
-    color: $light-2-100;
-    
-}
-
-input[type="text"]:focus,
-textarea:focus {
-    
-    background: white;
-    
-}
-
-input[type="text"].ng-not-empty,
-textarea.ng-not-empty {
-    
-    background: transparent;
-    padding-left: 0;
-    padding-right: 0;
     
 }
 
