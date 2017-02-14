@@ -214,7 +214,7 @@ function findAngle(x, y) {
   return (Math.atan(y/x) * 180 / Math.PI) + addAngle; 
 }
 
-function moveCircle(angle) {console.log(angle);
+function moveCircle(angle) {//console.log(angle);
   var r = h/2 - 15;
   var x = r * Math.sin(angle * Math.PI / 180);
   var y = -r * Math.cos(angle * Math.PI / 180);

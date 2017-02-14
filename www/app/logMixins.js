@@ -4,7 +4,7 @@ define(function () {
         _log: function(methodName, args) {
             console.log(methodName, args);
         },
-        componentWillUpdte: function() {
+        componentWillUpdate: function() {
             this._log("componentWillUpdate", arguments);
         },
         componentDidUpdate: function() {

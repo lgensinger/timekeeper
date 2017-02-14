@@ -128,7 +128,7 @@ define(function(require) {
             payPeriod.push(weekObj);
             
         };
-        console.log(payPeriod);
+        
         return payPeriod;
         
     };

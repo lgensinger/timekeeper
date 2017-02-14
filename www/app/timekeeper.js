@@ -90,7 +90,7 @@ define(function(require) {
                     
                     // save data from components
                     function updateHours(arg) {
-                        console.log(arg);
+                        console.log("update hours at highest level");
                         // set the state to reflect input
                         self.setState({
                             payPeriod: arg

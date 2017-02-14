@@ -1,8 +1,8 @@
 define(function (require) {
             
     // sub components
-    var displayHours = require("../displayHours");
-    var inputHours = require("../inputHours");
+    var displayHours = require("./displayHours");
+    var inputHours = require("./inputHours");
        
     // create input number component
     var addTime = React.createClass({
@@ -63,6 +63,11 @@ define(function (require) {
             
             // expose to parent
             this.props.updateHours(data);
+            
+            // set state
+            this.setState({
+                edit: null
+            });
             
         },
         

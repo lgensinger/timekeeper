@@ -22,7 +22,7 @@ define(function () {
         
         // build arc using d3 math
         componentWillMount: function() {
-            
+
             var radius = this.props.radius;
             var spacing = 0.09;
 
@@ -36,6 +36,12 @@ define(function () {
            
         },
         
+        componentDidUpdate: function() {
+
+            //console.log(this.state.ring.end);
+            //console.log(this.props.ring.end);
+        },
+
         // drag even starts
         _dragStart: function(event) {
             
@@ -56,17 +62,12 @@ define(function () {
         _drag: function(event) {
             
             console.log("dragging");
-            //console.log(this.props.ring);
-            var handle = event.target;
-            var dx = event.clientX;
-            var dy = event.clientY;
-            var d = 0;
             
             // clone data
             var ring = Object.assign({}, this.state.ring);
             
             // update data based on interaction
-            ring.end = ring.end + 5;
+            ring.end = ring.end + 1;
             
             // set up ring with key to pass up to parent
             var data = {
@@ -76,6 +77,12 @@ define(function () {
             
             // expose to parent
             this.props.updateRing(data);
+            
+            // update state so it looks correct
+            // TODO figure out why these children don't update from the parent
+            this.setState({
+                ring: ring
+            });
             
         },
         
@@ -105,7 +112,7 @@ define(function () {
 
                     // attributes
                     {
-                        d: _self.arc(this.state.ring)
+                        d: arcD
                     },
 
                     // content
