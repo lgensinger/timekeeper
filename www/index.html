@@ -112,9 +112,9 @@ var circle = arcGroup.append("circle")
    .attr("cx", 0)
    .attr("cy", 5 + circleRadius - h/2)
   .attr("cursor", "move")
-  .call( d3.behavior.drag().on('drag', function(){console.log("b")
+  .call( d3.behavior.drag().on('drag', function(){
     a = findAngle(d3.event.x, d3.event.y);
-    
+    console.log(a);
     currentStep = angleToStep(a);
     setAngleStep(currentStep);
     
