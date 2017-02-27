@@ -12,7 +12,8 @@ define(function () {
         
         // create data for each tick in entire value set
         var tick = {
-            idx: i
+            idx: i,
+            degree: 360 / maxValue
         };
         
         // push into array

@@ -26,7 +26,6 @@ define(function (require) {
         getInitialState: function () {
             return {
                 rings: this.props.rings,
-                slices: this.props.ticks,
                 width: this.props.width,
                 height: this.props.height,
                 padAngle: this.props.PadAngle,
@@ -81,7 +80,7 @@ define(function (require) {
                     },
 
                     // each slice
-                    this.state.slices.map(function(slice, idx) {
+                    this.props.ticks.map(function(slice, idx) {
 
                         return React.DOM.g(
 
@@ -126,7 +125,8 @@ define(function (require) {
                                 ring: ring,
                                 radius: this.state.radius,
                                 idx: idx,
-                                updateRing: this._updateRing
+                                updateRing: this._updateRing,
+                                ticks: this.props.ticks
                             })
 
                         )

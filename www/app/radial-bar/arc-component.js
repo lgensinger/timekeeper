@@ -1,48 +1,15 @@
 define(function () {
     
     var isSelected = false;
-    
-    var arcStartAngle = 0;
-    var arcInnerRadius = 0;
-    var arcOuterRadius = 0;
-    var anglePoint = 0;
     var handleRadius = 10;
-    var fullAngle = Math.PI * 2;
-    var maxStep = 24 * 60;
-    var anglePerStep = fullAngle / maxStep;
-    var currentStep = 0;
-    var animationDuration = 50;
-    var addAngle;
     var currentX;
     var currentY;
-    
-    function findAngleInDegrees(x, y) {
-        
-        Math.degrees = function(radians) {
-            return radians * 180 / Math.PI;
-        };
-        
-        Math.radians = function(degrees) {
-            return degrees * Math.PI / 180;
-        };     
-        
-        var angleInRadians = Math.atan(y/x);
-        var angleAdjust = x < 0 && y > 0 ? 180 : x < 0 && y < 0 ? 180 : x > 0 && y < 0 ? 360 : 0;
-        var angleInDegrees = Math.degrees(angleInRadians) + angleAdjust;
-        
-        return angleInDegrees;
-        
-    };
-    
-    function svgCursor(event, coords, svg) {
-                
-        coords.x = event.clientX;
-        coords.y = event.clientY;
-
-        return coords.matrixTransform(svg.getScreenCTM().inverse());
-
-    };
-       
+    var lastAngle;
+    var nextAngle;
+    var previousAngle;
+    var currentAngle;
+    var startAngle;
+              
     // create radial viz
     var arc = React.createClass({
         
@@ -53,7 +20,8 @@ define(function () {
             ring: React.PropTypes.object.isRequired,
             radius: React.PropTypes.number.isRequired,
             idx: React.PropTypes.number.isRequired,
-            updateRing: React.PropTypes.func
+            updateRing: React.PropTypes.func,
+            settings: React.PropTypes.object
         },
         
         // set state
@@ -90,51 +58,65 @@ define(function () {
             // set selected arc handle
             var handle = event.target;
             
-            // get local svg
-            var svg = document.getElementsByTagName("svg")[this.state.ring.weekIdx];
-            
-            // create svg point object
-            var point = svg.createSVGPoint();
-            
-            // get svg points from cursor location
-            var svgCoords = svgCursor(event, point, svg);
-            
-            // set initial x,y
-            currentX = svgCoords.x - this.props.radius;
-            currentY = (svgCoords.y - this.props.radius) * -1;
+            // set current x,y
+            this._setCurrentXY(event);
             
             //var x = event.clientX - currentX;
             //var y = event.clientY - currentY;
             
             // find angle
-            var angle = findAngleInDegrees(currentX, currentY);
-            console.log(angle);
-            // bind mouse move to handle
-            //handle.addEventListener("mousemove", this._drag, false);
+            var angle = this._findAngle(currentX, currentY * -1, "degrees");
             
+            // set angle starting point
+            startAngle = angle;
+            
+            // set angles on either side of current angle
+            previousAngle = angle - this.props.ticks[0].degree;
+            nextAngle = angle + this.props.ticks[0].degree;
+            
+            // bind mouse move to handle
+            handle.addEventListener("mousemove", this._drag, false);
+
         },
         
         // drag happening
         _drag: function(event) {
-            
-            console.log("dragging");
-            
+                       
             // clone data
             var ring = Object.assign({}, this.state.ring);
             
-            // mouse locations
-            var x = event.clientX - currentX;
-            var y = event.clientY - currentY;
+            // set current x,y
+            this._setCurrentXY(event);
             
             // find angle
-            var angle = findAngleInDegrees(x, y);
-            console.log(angle);
+            var angle = this._findAngle(currentX, currentY * -1, "degrees");
+            
+            // determine if found angle is between current angle and next step angle or last step angle
+            var direction = angle < lastAngle && angle > previousAngle ? "add" : "remove";
+            
+            // check current angle and current position angle
+            if (currentAngle == null) {
+                
+                // set current angle
+                if (direction == "add") {
+                    
+                    currentAngle = nextAngle;
+                    event.target.setAttribute("cx", this._findCircleXY(currentAngle)["x"]); 
+                    event.target.setAttribute("cy", this._findCircleXY(currentAngle)["y"]);console.log(direction);
+                    
+                } else if (direction == "remove") {
+                    
+                    currentAngle = previousAngle;
+                    
+                };
+                
+            };
             
             // update data based on interaction
             //ring.end = ring.end + 1;
             
             // set up ring with key to pass up to parent
-            var data = {
+            /*var data = {
                 key: this.props.idx,
                 ring: ring
             };
@@ -150,7 +132,7 @@ define(function () {
             
             // set x,y for next drag
             currentX = event.clientX;
-            currentY = event.clientY;
+            currentY = event.clientY;*/
             
         },
         
@@ -171,6 +153,65 @@ define(function () {
                 isSelected = false;
                 
             };
+            
+        },
+        
+        // get scaled svg cursor from mouse positon
+        _svgCursor: function(event, coords, svg) {
+                
+            coords.x = event.clientX;
+            coords.y = event.clientY;
+
+            return coords.matrixTransform(svg.getScreenCTM().inverse());
+            
+        },
+        
+        // get angle from x,y
+        _findAngle: function(x, y, format) {
+        
+            Math.degrees = function(radians) {
+                return radians * 180 / Math.PI;
+            };
+
+            Math.radians = function(degrees) {
+                return degrees * Math.PI / 180;
+            };     
+
+            var angleInRadians = Math.atan(y/x);
+            var angleAdjust = x < 0 && y > 0 ? 180 : x < 0 && y < 0 ? 180 : x > 0 && y < 0 ? 360 : 0;
+            var angleInDegrees = Math.degrees(angleInRadians) + angleAdjust;
+            var angles = { radians: angleInRadians, degrees: angleInDegrees };
+
+            return angles[format];
+
+        },
+        
+        // find x,y along a circle
+        _findCircleXY: function(angle) {
+            
+            var r = this.props.radius;
+            var x = 0 + r * Math.cos(angle);
+            var y = 0 + r * Math.sin(angle);
+            
+            return { x: x, y: y };
+            
+        },
+        
+        // set current scaled svg cursor
+        _setCurrentXY: function(event) {
+            
+            // get local svg
+            var svg = document.getElementsByTagName("svg")[this.state.ring.weekIdx];
+            
+            // create svg point object
+            var point = svg.createSVGPoint();
+            
+            // get svg points from cursor location
+            var svgCoords = this._svgCursor(event, point, svg);
+            
+            // set initial x,y
+            currentX = svgCoords.x - this.props.radius;
+            currentY = (svgCoords.y - this.props.radius);
             
         },
         
@@ -207,7 +248,7 @@ define(function () {
                     null
 
                 ),
-                React.DOM.circle({cx: alcMidpoint[0], cy: alcMidpoint[1], r: handleRadius, cursor: "grab", cursor: "-webkit-grab", onMouseDown: this._dragStart, onMouseUp: this._dragEnd, onMouseOut: this._dragEnd}, null)
+                React.DOM.circle({cx: alcMidpoint[0], cy: alcMidpoint[1], r: handleRadius, cursor: "grab", cursor: "-webkit-grab", onMouseDown: this._dragStart, onMouseUp: this._dragEnd/*, onMouseOut: this._dragEnd*/}, null)
                 // handle
                 /*React.DOM.path(
                     
