@@ -2,6 +2,8 @@ define(function () {
     
     var isSelected = false;
     var handleRadius = 10;
+    var initialX;
+    var initialY;
     var currentX;
     var currentY;
     var lastAngle;
@@ -9,6 +11,7 @@ define(function () {
     var previousAngle;
     var currentAngle;
     var startAngle;
+    var handle;
               
     // create radial viz
     var arc = React.createClass({
@@ -56,26 +59,29 @@ define(function () {
             isSelected = true;
                             
             // set selected arc handle
-            var handle = event.target;
+            handle = event.target;
+            var canvas = document.getElementsByTagName("svg")[this.state.ring.weekIdx];
+            
+            // set initial x,y
+            initialX = parseFloat(event.target.getAttributeNS(null, "cx"));
+            initialY = parseFloat(event.target.getAttributeNS(null, "cy"));
             
             // set current x,y
             this._setCurrentXY(event);
-            
-            //var x = event.clientX - currentX;
-            //var y = event.clientY - currentY;
             
             // find angle
             var angle = this._findAngle(currentX, currentY * -1, "degrees");
             
             // set angle starting point
-            startAngle = angle;
+            //startAngle = angle;
             
             // set angles on either side of current angle
-            previousAngle = angle - this.props.ticks[0].degree;
-            nextAngle = angle + this.props.ticks[0].degree;
+            //previousAngle = angle - this.props.ticks[0].degree;
+            //nextAngle = angle + this.props.ticks[0].degree;
             
             // bind mouse move to handle
-            handle.addEventListener("mousemove", this._drag, false);
+            canvas.addEventListener("mousemove", this._drag, false);
+            canvas.addEventListener("mouseup", this._dragEnd, false);
 
         },
         
@@ -84,52 +90,38 @@ define(function () {
                        
             // clone data
             var ring = Object.assign({}, this.state.ring);
-            
+
             // set current x,y
             this._setCurrentXY(event);
-            
+
             // find angle
-            var angle = this._findAngle(currentX, currentY * -1, "degrees");
+            var angle = this._findAngle(currentX, currentY, "degrees");
+            var angleRadians = this._findAngle(currentX, currentY, "radians");
             
             // determine if found angle is between current angle and next step angle or last step angle
-            var direction = angle < lastAngle && angle > previousAngle ? "add" : "remove";
-            
-            // check current angle and current position angle
-            if (currentAngle == null) {
-                
-                // set current angle
-                if (direction == "add") {
-                    
-                    currentAngle = nextAngle;
-                    event.target.setAttribute("cx", this._findCircleXY(currentAngle)["x"]); 
-                    event.target.setAttribute("cy", this._findCircleXY(currentAngle)["y"]);console.log(direction);
-                    
-                } else if (direction == "remove") {
-                    
-                    currentAngle = previousAngle;
-                    
-                };
-                
-            };
-            
+            //var direction = angle < lastAngle && angle > previousAngle ? "add" : "remove";
+            var xy = this._findCircleXY(angleRadians);
+            handle.setAttribute("cx", xy.x); 
+            handle.setAttribute("cy", xy.y);
+
             // update data based on interaction
             //ring.end = ring.end + 1;
-            
+
             // set up ring with key to pass up to parent
             /*var data = {
                 key: this.props.idx,
                 ring: ring
             };
-            
+
             // expose to parent
             this.props.updateRing(data);
-            
+
             // update state so it looks correct
             // TODO figure out why these children don't update from the parent
             this.setState({
                 ring: ring
             });
-            
+
             // set x,y for next drag
             currentX = event.clientX;
             currentY = event.clientY;*/
@@ -144,10 +136,11 @@ define(function () {
                 console.log("drag end");
 
                 // set selected arc handle
-                var handle = event.target;
+                var canvas = document.getElementsByTagName("svg")[this.state.ring.weekIdx];
 
                 // remove listener from handle
-                handle.removeEventListener("mousemove", this._drag, false);
+                canvas.removeEventListener("mousemove", this._drag, false);
+                canvas.removeEventListener("mouseup", this._dragEnd, false);
                 
                 // set selection tracking
                 isSelected = false;
@@ -177,9 +170,9 @@ define(function () {
                 return degrees * Math.PI / 180;
             };     
 
-            var angleInRadians = Math.atan(y/x);
-            var angleAdjust = x < 0 && y > 0 ? 180 : x < 0 && y < 0 ? 180 : x > 0 && y < 0 ? 360 : 0;
-            var angleInDegrees = Math.degrees(angleInRadians) + angleAdjust;
+            // calculate radians and degrees
+            var angleInRadians = Math.atan2(y, x);
+            var angleInDegrees = Math.degrees(angleInRadians);
             var angles = { radians: angleInRadians, degrees: angleInDegrees };
 
             return angles[format];
@@ -189,7 +182,12 @@ define(function () {
         // find x,y along a circle
         _findCircleXY: function(angle) {
             
-            var r = this.props.radius;
+            // get radius for ring
+            var radius = Math.sqrt(Math.pow(initialX, 2) + Math.pow(initialY, 2));
+            
+            // calculate the x,y for the individual ring
+            // based on the mouse poitin arc angle from center of circle
+            var r = radius;
             var x = 0 + r * Math.cos(angle);
             var y = 0 + r * Math.sin(angle);
             
@@ -211,7 +209,7 @@ define(function () {
             
             // set initial x,y
             currentX = svgCoords.x - this.props.radius;
-            currentY = (svgCoords.y - this.props.radius);
+            currentY = svgCoords.y - this.props.radius;
             
         },
         
@@ -248,7 +246,7 @@ define(function () {
                     null
 
                 ),
-                React.DOM.circle({cx: alcMidpoint[0], cy: alcMidpoint[1], r: handleRadius, cursor: "grab", cursor: "-webkit-grab", onMouseDown: this._dragStart, onMouseUp: this._dragEnd/*, onMouseOut: this._dragEnd*/}, null)
+                React.DOM.circle({cx: alcMidpoint[0], cy: alcMidpoint[1], r: handleRadius, cursor: "grab", cursor: "-webkit-grab", onMouseDown: this._dragStart, fill: "orange"}, null)
                 // handle
                 /*React.DOM.path(
                     
