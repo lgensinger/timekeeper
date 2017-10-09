@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** DARK STYLE ***************************************/
+
+/* Dark styles. */
+
+/* !IMPORTS
+/* !SASS VARIABLES
+/* !GLOBALS
+/* !CUSTOM
+/* --- !*/
+
+/******************************* !IMPORTS *******************************/
+
+@import "../system/palettes.scss";
+
+/******************************* !SASS VARIABLES *******************************/
+
+/* defaults */
+$copy-color: $mid-2-100;
+$copy-hover: $light-2-100;
+
+/******************************* !GLOBALS *******************************/
+
+html .dark,
+body.dark {
+    
+    background: $dark-1-100;
+    
+}
+
+.dark {
+    
+    html, body, ui-view, main, header, footer, p,
+    h1, h2, h3, h4, h5, h6 {
+
+        color: $copy-color;
+
+    }
+    
+    button,
+    a,
+    input {
+
+        color: currentColor;
+
+    }
+    
+    button {
+	
+        background-color: transparent;
+        border-color: currentColor;
+
+    }
+
+    a:hover,
+    a:hover > p {
+
+        color: $copy-hover;
+
+    }
+
+    /* button hover */
+    button:not([disabled]):hover {
+
+        border-color: $copy-hover;
+        color: $copy-hover;
+
+    }
+    
+}
+
+/******************************* !CUSTOM *******************************/
+
+.dark {
+    
+    /* active text */
+    .active {
+        
+        color: white;
+        
+    }
+    
+    /* emphasized text */
+    strong {
+        
+        color: white;
+        
+    }
+    
+    /* title */
+    .upload h1 {
+
+        color: $light-5-100;
+
+    }
+    
+    /* form subtitles */
+    .upload-form fieldset legend {
+
+        color: $mid-5-100;
+
+    }
+    
+    /* faux background */
+    .checkbox input[type=checkbox] + label:after {
+
+        background: $dark-4-100;
+
+    }
+    
+    /* DISABLED faux background */
+    .checkbox input[type=checkbox]:disabled + label:after {
+
+        background: $dark-4-100;
+
+    }
+    
+    /* CHECKED faux background */
+    .checkbox input[type=checkbox]:not([disabled]) + label:after {
+
+        background: $dark-3-100;
+
+    }
+    
+    /* CHECKED faux checkmark */
+    .checkbox input[type=checkbox]:checked + label:before {
+
+        color: $light-1-100;
+
+    }
+    
+    /* CHECKED text */
+    .checkbox input[type=checkbox]:checked + label {
+
+        color: $light-1-100;
+
+    }
+    
+    /* CHECKED sibling line chart */
+    .upload-form .selected .line-chart svg path {
+
+        stroke: currentColor;
+
+    }
+    
+    /* form subtitle values */
+    .upload-form fieldset legend span,
+    .upload-form fieldset legend input[type=number] {
+
+        color: $light-3-100;
+
+    }
+    
+    /* FOCUSED subtitle value as input */
+    .upload-form fieldset legend input[type=number]:focus {
+        
+        background: $dark-3-100;
+        
+    }
+    
+    /* FOCUSED text */
+    .checkbox input[type=checkbox]:focus + label {
+
+        background: $dark-3-100;;
+
+    }
+    
+    /* track */
+    .range-slider input[type=range]::-webkit-slider-runnable-track {
+    
+        background: $dark-3-100;
+
+    }
+    
+    /* FIREFOX track */
+    .range-slider input[type=range]::-moz-range-track {
+    
+        background: $dark-3-100;
+
+    }
+    
+    /* thumb */
+    .range-slider input[type=range]::-webkit-slider-thumb {
+        
+        background: currentColor;
+        
+    }
+    
+    /* FIREFOX thumb */
+    .range-slider input[type=range]::-moz-range-thumb {
+
+        background: currentColor;
+
+    }
+    
+    /* FOCUSED range slider */
+    .range-slider input[type=range]:focus {
+
+        background: $dark-3-100;;
+
+    }
+    
+    /* drop zone background */
+    .drag-drop input[type="file"] + label:before {
+    
+        background: $dark-4-20;
+
+    }
+    
+    /* HOVERED drop zone background */
+    .drag-drop input[type="file"] + label:hover:before {
+        
+        background: $dark-4-20;
+        
+    }
+    
+    /* FOCUSED drop zone background */
+    .drag-drop input[type="file"]:focus + label:before {
+        
+        background: $dark-4-50;
+        
+    }
+    
+    /* view wrap */
+    .drag-drop > div > div:last-of-type {
+
+        background: $dark-4-90;
+
+    }
+    
+    /* controls wrap */
+    .carousel > div:last-of-type {
+    
+        background: $dark-4-80;
+        
+    }
+    
+    /* control icon */
+    .carousel > div:last-of-type button:before {
+
+        color: $light-1-90;
+
+    }
+    
+    /* caption */
+    .posters figure figcaption {
+
+        background: $dark-4-100;
+
+    }
+    
+    /* header */
+    .results header {
+        
+        background: $dark-4-90;
+        
+    }
+    
+    /* stat digit */
+    .results header p span:first-of-type {
+
+        color: white;
+
+    }
+    
+    .results > div > div > div > div > div p:first-of-type {
+        color: $light-2-100;
+    }
+    
+    /* stats connection text */
+    .results header p:nth-child(even) {
+
+        color: yellow;
+
+    }
+
+}

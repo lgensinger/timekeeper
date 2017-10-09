@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** desktop STYLE ***************************************/
+
+/* Highest desktop specific styling. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* !CUSTOM
+/* --- !something
+
+/******************************* !IMPORTS *******************************/
+
+@import "../system/typography";
+@import "../system/shapes";
+@import "../system/forms";
+ 
+/******************************* !GLOBALS *******************************/
+
+html, body {
+    
+    font-family: $serif, serif;
+    font-size: $copy-size;
+    
+}
+
+:hover,
+:focus {
+	
+	-o-transition: all 100ms;
+	-moz-transition: all 100ms;
+	-webkit-transition: -webkit-all 100ms;
+	transition: all 100ms;
+	
+}
+
+html,
+body,
+h1,
+h2,
+h3 {
+	
+	font-family: $serif, serif;
+	
+}
+
+h1 {
+    
+    font-size: $headline-size;
+    font-weight: $sans-serif-light;
+    line-height: $headline-leading;
+    margin-bottom: 0.5em;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+    max-width: $headline-max-width;
+    width: 40%;
+    
+}
+
+/******************/
+/***** !copy ******/
+/******************/
+
+p, thead, tfoot, tbody, li, td, small {
+
+    line-height: $copy-leading;
+    margin-bottom: 1em;
+    max-width: $copy-max-width;
+    
+}
+
+small {
+    
+    display: block;
+    
+}
+
+/*******************/
+/***** !lists ******/
+/*******************/
+
+ul, ol {
+    
+    margin: 0;
+    padding: 0;
+    
+}
+
+li {
+    
+    list-style-type: disc;
+    margin-left: 2em;
+    padding-left: 0.5em;
+    
+}
+
+a {
+	
+	cursor: pointer;
+    text-decoration: none;
+	
+}
+
+/******************/
+/***** !bold ******/
+/******************/
+
+b, strong {
+    
+    font-weight: $sans-serif-bold;
+    
+}
+
+button {
+	
+	border: $line-thin;
+	border-style: solid;
+	font-size: $button-regular;
+	padding: 0.5em;
+	
+}
+
+a:focus,
+button:focus {
+	
+	outline: none;
+	
+}
+
+/**************************/
+/***** !font awesome ******/
+/**************************/
+
+/* close butotn */
+button[class*="fa"] {
+    
+    border: 0 none;
+    
+}
+
+/******************************* !CUSTOM *******************************/
+
+body > div > div > div {
+    width: 80vw;
+}

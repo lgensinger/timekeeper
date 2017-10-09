@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** LIGHT STYLE ***************************************/
+
+/* Light styles. */
+
+/* !IMPORTS
+/* !SASS VARIABLES
+/* !GLOBALS
+/* !CUSTOM
+/* --- !*/
+
+/******************************* !IMPORTS *******************************/
+
+@import "../system/palettes.scss";
+
+/******************************* !SASS VARIABLES *******************************/
+
+/* defaults */
+$copy-color: $dark-1-100;
+$copy-hover: $dark-3-100;
+
+/******************************* !GLOBALS *******************************/
+
+html .light,
+body.light {
+    
+    background: $light-2-100;
+    
+}
+
+.light {
+    
+    html, body, ui-view, main, header, footer, p,
+    h1, h2, h3, h4, h5, h6 {
+
+        color: $copy-color;
+
+    }
+    
+    button,
+    a,
+    input {
+
+        color: currentColor;
+
+    }
+    
+    button {
+	
+        background-color: transparent;
+        border-color: currentColor;
+
+    }
+
+    button:hover,
+    a:hover,
+    a:hover > p {
+
+        color: $copy-hover;
+
+    }
+
+    /* button hover */
+    button:not([disabled]):hover {
+
+        border-color: $copy-hover;
+        color: $copy-hover;
+
+    }
+    
+}
+
+/******************************* !CUSTOM *******************************/
+
+.light {
+    
+    /* feed title */
+    section.detail p:first-of-type {
+
+        color: $dark-4-100;
+
+    }
+    
+}

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** html form elements STYLE ***************************************/
+
+/* Highest form specific styling. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* !CUSTOM
+/* --- !something
+
+/******************************* !IMPORTS *******************************/
+
+@import "../system/typography";
+ 
+/******************************* !GLOBALS *******************************/
+
+form,
+form label {
+    
+    margin: 0;
+    
+}
+
+input[type="text"],
+input[type="password"] {
+    
+    max-width: $copy-max-width;
+    min-width: $copy-min-width;
+    padding: 0.5em;
+    width: calc(100 - 1em);
+    
+}
+
+input[type="text"], textarea {
+    
+    margin-top: 0.5em;
+    
+}
+
+input[type="radio"] {
+    
+    display: none;
+    
+}
+
+input[type="radio"] + label {
+    
+    cursor: pointer;
+    padding: 0.5em;
+    
+}
+
+input[type="search"] {
+    
+    padding: $copy-gutter-quarter;
+    
+}
+
+input[type="search"] + label {
+    
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+}
+
+input[type="search"] + label:after {
+
+    font-family: "FontAwesome";
+    font-size: 1.5em;
+    position: absolute;
+    right: 0.5em;
+    top: 0.35em;
+    
+}
+
+textarea {
+    
+    max-width: $copy-max-width;
+    min-width: $copy-min-width;
+    padding: 0.5em;
+    width: calc(100% - 1em);
+    
+}
+
+input[disabled],
+button[disabled] {
+    
+    opacity: 0.3;
+    
+}
+
+/******************************* !CUSTOM *******************************/

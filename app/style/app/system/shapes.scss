@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** SHAPES STYLE ***************************************/
+
+@import "../system/typography";
+
+/* !ELEMENTS
+/* !GRID TILE
+/* !VISUALS
+/* !SEARCH
+/* !LINE WORK
+
+/******************************* !ELEMENTS *******************************/
+
+/* sidebar */
+$sidebar: 300px;
+$autocomplete: 150px;
+
+/******************************* !GRID TILE *******************************/
+
+/* large */
+$tile-large-height: 500px;
+$tile-large-width: calc(50% - #{$copy-gutter-quarter});
+
+/* medium */
+$tile-medium-height: 300px;
+$tile-medium-width: calc((100% / 3) - #{$copy-gutter-quarter});
+
+/* small */
+$tile-small-height: 150px;
+$tile-small-width: calc(20% - #{$copy-gutter-quarter});
+
+/******************************* !VISUALS *******************************/
+
+/* inset size */
+$inset-visual-height: 600px;
+$inset-visual-height-inline: 50px;
+$inset-visual-width: 400px;
+
+/******************************* !SEARCH *******************************/
+
+/* inset size */
+$inset-search-width: 20%;
+$inset-search-width-max: 600px;
+$inset-search-width-min: 300px;
+
+/******************************* !LINE WORK *******************************/
+
+/* line weights */
+$line-thin: 1px;
+$line-regular: 2px;
+$line-thick: 3px;
+$line-extra-thick: 6px;
+
+/* menus */
+$menu-left: 200px;
+
+/* icons */
+$icon-large: 4em;

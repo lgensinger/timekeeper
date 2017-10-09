@@ -1,0 +1,304 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** desktop-small STYLE ***************************************/
+
+/* !IMPORTS
+
+/* !NON-RETINA
+/* --- 1350
+/* --- !MODULE 
+/* --------- grid-cropped
+/* --------- grid
+/* --- !COMPONENT
+/* --------- card-timeline
+
+/* --- 1050
+/* --- !MODULE 
+/* --------- grid-cropped
+/* --------- grid
+
+/* --- 600
+/* --- !MODULE 
+/* --------- grid-cropped
+/* --------- grid
+
+/* !RETINA
+/* --- 1350
+/* --- !MODULE
+/* --------- grid-cropped
+/* --------- grid
+/* --- !COMPONENT
+/* --------- card-timeline
+
+/* --- 1050
+/* --- !MODULE 
+/* --------- grid-cropped
+/* --------- grid
+
+/* --- 600
+/* --- !MODULE 
+/* --------- grid-cropped
+/* --------- grid
+
+
+/******************************* !IMPORTS *******************************/
+
+@import "../system/shapes";
+
+/******************************* !NON-RETINA *******************************/
+
+/****************************************************** !1350 ******************************************************/
+
+@media screen  
+and (-webkit-min-device-pixel-ratio: 1)
+and (min-width: 0px) 
+and (max-width: 1350px){ 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: $tile-large-width;
+
+    }
+    
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: $tile-large-width;
+
+    }
+    
+    /* large sized grid tile */
+    .grid .grid-item-large {
+
+        width: calc((#{$tile-medium-width} * 2) + #{$copy-gutter-quarter});
+
+    }
+    
+    /*************************************/
+    /***** !COMPONENT card-timeline ******/
+    /*************************************/
+    
+    /* content text wrap */
+    .card-timeline > div:first-of-type > div {
+
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+
+    }
+      
+}
+
+/****************************************************** !1050 ******************************************************/
+
+@media screen  
+and (-webkit-min-device-pixel-ratio: 1)
+and (min-width: 0px) 
+and (max-width: 1050px){ 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: calc(#{$tile-large-width} * 2);
+
+    }
+    
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: calc(#{$tile-large-width} * 2);
+
+    }
+    
+    /* large sized grid tile */
+    .grid .grid-item-large {
+
+        width: 100%;
+
+    }
+      
+}
+
+/****************************************************** !600 ******************************************************/
+
+@media screen  
+and (-webkit-min-device-pixel-ratio: 1)
+and (min-width: 0px) 
+and (max-width: 600px){ 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: 100%;
+
+    }
+    
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: 100%
+
+    }
+      
+}
+
+/******************************* !RETINA *******************************/
+
+/****************************************************** !1350 ******************************************************/
+
+@media screen 
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-resolution: 192dpi)
+and (min-width: 0px)
+and (max-width: 1350px) { 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: $tile-large-width;
+
+    }
+
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: $tile-large-width;
+
+    }
+    
+    /* large sized grid tile */
+    .grid .grid-item-large {
+
+        width: calc((#{$tile-large-width} * 2) + #{$copy-gutter-quarter});
+
+    }
+    
+    /*************************************/
+    /***** !COMPONENT card-timeline ******/
+    /*************************************/
+    
+    /* content text wrap */
+    .card-timeline > div:first-of-type > div {
+
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+
+    }
+    
+}
+
+/****************************************************** !1050 ******************************************************/
+
+@media screen  
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-width: 0px) 
+and (max-width: 1050px){ 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: calc(#{$tile-large-width} * 2);
+
+    }
+    
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: calc(#{$tile-large-width} * 2);
+
+    }
+    
+    /* large sized grid tile */
+    .grid .grid-item-large {
+
+        width: 100%;
+
+    }
+      
+}
+
+/****************************************************** !600 ******************************************************/
+
+@media screen  
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-width: 0px) 
+and (max-width: 600px){ 
+    
+    /*********************************/
+    /***** !MODULE grid-cropped ******/
+    /*********************************/
+    
+    /* masonry grid */
+    .grid-cropped .grid-sizer,
+    .grid-cropped .grid-item {
+
+        width: 100%
+
+    }
+    
+    /*************************/
+    /***** !MODULE grid ******/
+    /*************************/
+    
+    /* masonry grid */
+    .grid .grid-sizer,
+    .grid .grid-item {
+
+        width: 100%
+
+    }
+      
+}
