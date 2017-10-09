@@ -1,4 +1,4 @@
-var config = require("../app-frontend-config");
+//var config = require("../app-frontend-config");
 var loremIpsum = require("lorem-ipsum");
 var app = window.app;
 

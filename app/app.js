@@ -28,9 +28,6 @@ require("./app-frontend-config");
 
 /*************************** MODULES ***************************/
 
-// main module vendor dependencies
-//require("impress.js");
-
 // app initialized
 var app = window.app = (function(app) {
     app.init = function() {

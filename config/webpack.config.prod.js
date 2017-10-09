@@ -33,27 +33,31 @@ module.exports = {
         path: resolveApp("dist"),
         filename: staticDir + "/js/[name].[chunkhash:8].js",
         chunkFilename: staticDir + '/js/[name].[chunkhash:8].chunk.js',
-        publicPath: '/'
+        publicPath: ""
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['env', 'react']
                     }
                 }
             },
             {
                 test: /\.js$/, // include .js files
-                enforce: "pre", // preload the jshint loader
+                enforce: "pre", // preload the eslint loader
                 exclude: /node_modules/, // exclude any and all files in the node_modules folder
                 use: [
                     {
-                        loader: "jshint-loader"
+                        loader: "eslint-loader",
+                        options: {
+                            failOnWarning: false,
+                            failOnError: true
+                        }
                     }
                 ]
             },

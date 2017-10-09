@@ -1,7 +1,6 @@
 // controller prefixes
 var list = [
-    "app",
-    "frame"
+    "app"
 ];
 
 // add dependent modules
