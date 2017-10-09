@@ -68,8 +68,8 @@ define(function(require) {
                 endForecast: hours.end[day.day()],
                 weekIdx: payPeriodIdx,
                 //start: a,
-                start: 7,
-                end: 15
+                start: 0,
+                end: 8
                 //end: getRandomInt(a, a + hours.day)
             }
         ];
@@ -90,8 +90,8 @@ define(function(require) {
                 endForecast: hours.end[newDate.day()],
                 weekIdx: payPeriodIdx,
                 //start: b,
-                start: 7,
-                end: 15
+                start: 0,
+                end: 8
                 //end: getRandomInt(b, b + hours.day)
             };
 

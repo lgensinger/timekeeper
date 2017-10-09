@@ -70,14 +70,14 @@ define(function () {
             this._setCurrentXY(event);
             
             // find angle
-            var angle = this._findAngle(currentX, currentY * -1, "degrees");
+            var angle = this._findAngle(currentX, currentY, "degrees");
             
             // set angle starting point
-            //startAngle = angle;
-            
+            startAngle = angle;
+            console.log("start angle " + startAngle)
             // set angles on either side of current angle
-            //previousAngle = angle - this.props.ticks[0].degree;
-            //nextAngle = angle + this.props.ticks[0].degree;
+            previousAngle = angle - this.props.ticks[0].degree;
+            nextAngle = angle + this.props.ticks[0].degree;
             
             // bind mouse move to handle
             canvas.addEventListener("mousemove", this._drag, false);
@@ -103,12 +103,17 @@ define(function () {
             var xy = this._findCircleXY(angleRadians);
             handle.setAttribute("cx", xy.x); 
             handle.setAttribute("cy", xy.y);
+            
+            // check angle
+            if (angle >= nextAngle) {
+                console.log("increment Next angle!")
+            }
 
             // update data based on interaction
-            //ring.end = ring.end + 1;
+            ring.end = ring.end + 1;
 
             // set up ring with key to pass up to parent
-            /*var data = {
+            var data = {
                 key: this.props.idx,
                 ring: ring
             };
@@ -124,7 +129,7 @@ define(function () {
 
             // set x,y for next drag
             currentX = event.clientX;
-            currentY = event.clientY;*/
+            currentY = event.clientY;
             
         },
         
@@ -171,10 +176,10 @@ define(function () {
             };     
 
             // calculate radians and degrees
-            var angleInRadians = Math.atan2(y, x);
+            var angleInRadians = Math.atan2(y, x);console.log(angleInRadians);
             var angleInDegrees = Math.degrees(angleInRadians);
             var angles = { radians: angleInRadians, degrees: angleInDegrees };
-
+            
             return angles[format];
 
         },
