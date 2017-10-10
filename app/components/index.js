@@ -1,6 +1,6 @@
 // component prefixes
 var list = [
-    "frame"
+    "main"
 ];
 
 // add dependent modules

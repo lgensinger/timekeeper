@@ -28,18 +28,6 @@ require("./app-frontend-config");
 
 /*************************** MODULES ***************************/
 
-// app initialized
-var app = window.app = (function(app) {
-    app.init = function() {
-        //impress().init();
-    };
-    return app;
-}(app || {}));
-
-// initialize app
-app.init();
-
-// vanilla JS modules
-require("./controllers");
+// React JS modules
 require("./factories");
 require("./components");
