@@ -35,13 +35,13 @@
         "capitalized-comments": "off",
         "class-methods-use-this": "error",
         "comma-dangle": "error",
-        "comma-spacing": [
+        /*"comma-spacing": [
             "error",
             {
                 "after": true,
                 "before": false
             }
-        ],
+        ],*/
         "comma-style": [
             "error",
             "last"
@@ -101,7 +101,7 @@
             "always"
         ],*/
         "newline-before-return": "off",
-        "newline-per-chained-call": "error",
+        "newline-per-chained-call": "off",
         "no-alert": "error",
         "no-array-constructor": "error",
         "no-await-in-loop": "error",
@@ -114,7 +114,7 @@
         "no-continue": "error",
         "no-div-regex": "error",
         "no-duplicate-imports": "error",
-        "no-else-return": "error",
+        "no-else-return": "off",
         "no-empty-function": "error",
         "no-eq-null": "error",
         "no-eval": "error",
@@ -135,7 +135,7 @@
         "no-lone-blocks": "error",
         "no-lonely-if": "error",
         "no-loop-func": "error",
-        "no-magic-numbers": "error",
+        "no-magic-numbers": "off",
         "no-mixed-operators": "error",
         "no-mixed-requires": "error",
         "no-multi-assign": "off",
@@ -143,7 +143,7 @@
         "no-multi-str": "error",
         "no-multiple-empty-lines": "error",
         "no-native-reassign": "error",
-        "no-negated-condition": "error",
+        "no-negated-condition": "off",
         "no-negated-in-lhs": "error",
         "no-nested-ternary": "error",
         "no-new": "error",
@@ -178,6 +178,7 @@
         "no-undef-init": "error",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
+        "no-unreachable": "off",
         "no-unused-expressions": "off",
         "no-unused-vars": "off",
         "no-use-before-define": "off",

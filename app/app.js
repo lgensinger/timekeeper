@@ -28,6 +28,19 @@ require("./app-frontend-config");
 
 /*************************** MODULES ***************************/
 
-// React JS modules
+// app initialized
+var app = window.app = (function(app) {
+    app.init = function() {
+        //init other stuff if needed
+    };
+    return app;
+}(app || {}));
+
+// initialize app
+app.init();
+
+// vanilla JS modules
 require("./factories");
+
+// React JS modules
 require("./components");

@@ -1,5 +1,5 @@
-//var config = require("../app-frontend-config");
 var app = window.app;
+require("../factories/time-factory");
 
 var React = require("react");
 var ReactDOM = require("react-dom");
@@ -9,7 +9,11 @@ var loremIpsum = require("lorem-ipsum");
 
 (function() {
     
-    var names = ["John", "Sarah", "Kevin", "Alice"];
+    var timeFactory = app.timeFactory;
+
+    // get pay period data
+    var payPeriod = timeFactory.generatePayPeriod();
+    console.log(payPeriod);
     
     var timekeeper = createReactClass({
         
@@ -21,11 +25,11 @@ var loremIpsum = require("lorem-ipsum");
                 React.createElement(
                   "ul",
                   null,
-                  names.map(function (name) {
+                  payPeriod.map(function (week) {
                     return React.createElement(
                       "li",
                       null,
-                      name
+                      week.name
                     );
                   })
                 )

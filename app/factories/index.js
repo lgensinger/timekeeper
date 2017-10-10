@@ -1,6 +1,7 @@
 // controller prefixes
 var list = [
-    "dom"
+    "time",
+    "utils"
 ];
 
 // add dependent modules
